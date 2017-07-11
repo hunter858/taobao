@@ -12,7 +12,7 @@
 #import "urlTool.h"
 
 
-@interface twoimageview : UIView
+@interface twoimageview : UIControl
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;

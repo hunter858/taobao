@@ -11,7 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "urlTool.h"
 
-@interface oneImageView : UIView
+@interface oneImageView : UIControl
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;

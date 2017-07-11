@@ -303,6 +303,8 @@
     }
     //移除之前的 UIImageView
     
+    __weak typeof(self) weakself=self;
+    
     oneImageView *view1 = [[oneImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     oneImageView *view2 = [[oneImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     oneImageView *view3 = [[oneImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -311,6 +313,9 @@
     [self.contentView addSubview:view2];
     [self.contentView addSubview:view3];
     [self.contentView addSubview:view4];
+    [self.viewArray removeAllObjects];
+    self.viewArray = @[view1,view2,view3,view4].mutableCopy;
+    
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view1.superview.mas_left).offset(0);
         make.top.equalTo(view1.superview.mas_top).offset(0);
@@ -340,10 +345,25 @@
     }];
 
     
-    [view1 setData:self.dataArray[0]];
-    [view2 setData:self.dataArray[1]];
-    [view3 setData:self.dataArray[2]];
-    [view4 setData:self.dataArray[3]];
+    for (int i=0; i<self.viewArray.count; i++) {
+        
+        oneImageView *oneView = self.viewArray[i];
+        if (i<self.dataArray.count) {
+            itemsModel *model = self.dataArray[i];
+            [oneView setData:model];
+            
+            [[oneView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(model.targetUrl);
+                 }
+                 
+             }];
+            
+        }
+        
+        
+    }
     
     [self layoutIfNeeded];
 }
@@ -358,10 +378,16 @@
     }
     //移除之前的 UIImageView
     
+    __weak typeof(self) weakself=self;
+    
+    
     twoimageview *view1 = [[twoimageview alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     twoimageview *view2 = [[twoimageview alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     [self.contentView addSubview:view1];
     [self.contentView addSubview:view2];
+    [self.viewArray removeAllObjects];
+    self.viewArray = @[view1,view2].mutableCopy;
+    
     
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view1.superview.mas_left).offset(0);
@@ -377,15 +403,33 @@
         make.width.equalTo(view2.superview.mas_width).multipliedBy(0.5);
     }];
     
-    [view1 setData:self.dataArray[0]];
-    [view2 setData:self.dataArray[1]];
-    
     
     [self layoutIfNeeded];
+    
+    for (int i=0; i<self.viewArray.count; i++) {
+        
+        twoimageview *oneView = self.viewArray[i];
+        if (i<self.dataArray.count) {
+            itemsModel *model = self.dataArray[i];
+            [oneView setData:model];
+            
+            [[oneView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(model.targetUrl);
+                 }
+                 
+             }];
+        }
+        
+        
+    }
+    
+    
 }
 
 -(void)case7{
-    
+    __weak typeof(self) weakself=self;
     while (self.contentView.subviews.count>0) {
         
         [[self.contentView.subviews lastObject] removeFromSuperview];
@@ -395,6 +439,8 @@
     productView *productView2 = [[productView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     [self.contentView addSubview:productView1];
     [self.contentView addSubview:productView2];
+    [self.viewArray removeAllObjects];
+    self.viewArray = @[productView1,productView2].mutableCopy;
     
     [productView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(productView1.superview.mas_left).offset(0);
@@ -410,11 +456,29 @@
         make.right.equalTo(productView2.superview.mas_right).offset(0);
         make.width.equalTo(productView1.mas_width);
     }];
-    [productView1 setBackgroundColor:[UIColor redColor]];
-    [productView2 setBackgroundColor:[UIColor blueColor]];
-    [productView1 setData:self.dataArray[0]];
-    [productView2 setData:self.dataArray[1]];
+    
     [self layoutIfNeeded];
+    
+    
+    for (int i=0; i<self.viewArray.count; i++) {
+        
+        twoimageview *oneView = self.viewArray[i];
+        if (i<self.dataArray.count) {
+            itemsModel *model = self.dataArray[i];
+            [oneView setData:model];
+            
+            [[oneView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(model.targetUrl);
+                 }
+                 
+             }];
+        }
+        
+        
+    }
+    
     
 }
 

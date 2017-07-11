@@ -13,7 +13,7 @@
 #import "Masonry.h"
 #import "preferenceView.h"
 
-@interface productView : UIView
+@interface productView : UIControl
 @property (strong, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (strong, nonatomic) IBOutlet UILabel *productContentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
