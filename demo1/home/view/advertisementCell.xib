@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="advertisementCell">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="60.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="taobaotitle" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-4j-Ya9">
+                        <rect key="frame" x="2" y="2" width="80" height="56.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="zlU-vJ-Ty8"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNx-O9-mKj" userLabel="rightView">
+                        <rect key="frame" x="82.5" y="0.0" width="307.5" height="61"/>
+                    </view>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ez-W4-ZZy" userLabel="line">
+                        <rect key="frame" x="82" y="3" width="0.5" height="54.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="0.5" id="Hvz-ez-Kek"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2s5-4j-Ya9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="4I2-te-PBj"/>
+                    <constraint firstItem="zNx-O9-mKj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8Go-4o-jz2"/>
+                    <constraint firstAttribute="bottom" secondItem="2s5-4j-Ya9" secondAttribute="bottom" constant="2" id="Gc6-9d-lkV"/>
+                    <constraint firstItem="zNx-O9-mKj" firstAttribute="leading" secondItem="0ez-W4-ZZy" secondAttribute="trailing" id="X3k-nj-Z3C"/>
+                    <constraint firstAttribute="bottom" secondItem="0ez-W4-ZZy" secondAttribute="bottom" constant="3" id="XBT-1P-ixH"/>
+                    <constraint firstItem="0ez-W4-ZZy" firstAttribute="leading" secondItem="2s5-4j-Ya9" secondAttribute="trailing" id="Zkw-KI-uAW"/>
+                    <constraint firstAttribute="trailing" secondItem="zNx-O9-mKj" secondAttribute="trailing" id="bGC-M8-Ia6"/>
+                    <constraint firstItem="0ez-W4-ZZy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="qfB-ch-m3g"/>
+                    <constraint firstItem="2s5-4j-Ya9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="rby-7I-9fa"/>
+                    <constraint firstAttribute="bottom" secondItem="zNx-O9-mKj" secondAttribute="bottom" id="zQA-5f-VCa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="rightView" destination="zNx-O9-mKj" id="fvm-0f-3Ke"/>
+            </connections>
+            <point key="canvasLocation" x="42" y="48.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="taobaotitle" width="79" height="58"/>
+    </resources>
+</document>
