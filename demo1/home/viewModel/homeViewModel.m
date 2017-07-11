@@ -368,13 +368,20 @@
 -(void)addProductCell{
     
     NSInteger cellCount =  self.productModel.section.count/2;
-    
+    NSInteger totalCount = self.productModel.section.count;
     // for 循环一次取2个数据，放进cell里面；
     
     for (NSInteger i =0; i<cellCount; i++) {
         NSMutableArray *array = @[].mutableCopy;
-        NSRange range = NSMakeRange (i, 2);
-        array = [self.productModel.section subarrayWithRange:range].mutableCopy;
+
+        if(i*2<totalCount){
+            [array addObject:self.productModel.section[i*2]];
+        }
+        if((i*2+1)<totalCount){
+            [array addObject:self.productModel.section[i*2+1]];
+        }
+        
+        
         [self addProductCell:array type:product];
     }
     
