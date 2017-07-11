@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "worthBuingSmallView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "Masonry.h"
-#import "homeTaobaoModel.h"
 #import "twoimageview.h"
 #import "oneImageView.h"
 #import "productView.h"
-#import "urlTool.h"
+
 
 typedef enum {
  firstStyle = 0,    //最左侧的view 0.4 右侧三个0.2比例
@@ -33,7 +31,9 @@ typedef enum {
 
 -(void)setProductData:(NSArray *)array;
 
-
 -(void)settype:(cellProductStyel)type;
+
+@property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
+//用户接受点击URL的block 回调
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "worthBuyingCell.h"
+#import "UIImageControl.h"
 
 @interface worthBuyingCell ()
 
@@ -58,10 +59,10 @@
 
 
 -(void)initViews{
-    UIImageView *view1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-    UIImageView *view2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-    UIImageView *view3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-    UIImageView *view4 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UIImageControl *view1 = [[UIImageControl alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UIImageControl *view2 = [[UIImageControl alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UIImageControl *view3 = [[UIImageControl alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UIImageControl *view4 = [[UIImageControl alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     
     
     [self.contentView addSubview:view1];
@@ -74,7 +75,7 @@
 
 -(void)setData:(NSArray *)array{
     
-    
+    __weak typeof(self) weakself=self;
     self.dataArray = array.mutableCopy;
     
     
@@ -89,8 +90,16 @@
         
         if (i < self.viewArray.count) {
             // 避免 view 的数量少于数据的数量，闪崩；
-            UIImageView  *imageView = self.viewArray[i];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+            UIImageControl  *imageView = self.viewArray[i];
+            [imageView.imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+            
+            [[imageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(item.targetUrl);
+                 }
+                 
+             }];
         }
 
     }
@@ -152,10 +161,10 @@
     
     //最左侧的view 0.4 右侧三个0.2比例
     
-    UIImageView  *view1 = self.viewArray[0];
-    UIImageView  *view2 = self.viewArray[1];
-    UIImageView  *view3 = self.viewArray[2];
-    UIImageView  *view4 = self.viewArray[3];
+    UIImageControl  *view1 = self.viewArray[0];
+    UIImageControl  *view2 = self.viewArray[1];
+    UIImageControl  *view3 = self.viewArray[2];
+    UIImageControl  *view4 = self.viewArray[3];
     
     
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -190,10 +199,10 @@
 -(void)case2{
     
     // 这段代码好low啊 [捂脸]
-    UIImageView  *view1 = self.viewArray[0];
-    UIImageView  *view2 = self.viewArray[1];
-    UIImageView  *view3 = self.viewArray[2];
-    UIImageView  *view4 = self.viewArray[3];
+    UIImageControl  *view1 = self.viewArray[0];
+    UIImageControl  *view2 = self.viewArray[1];
+    UIImageControl  *view3 = self.viewArray[2];
+    UIImageControl  *view4 = self.viewArray[3];
     
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view1.superview).offset(0);
@@ -230,10 +239,10 @@
 -(void)case3{
     
     // 这段代码好low啊 [捂脸]
-    UIImageView  *view1 = self.viewArray[0];
-    UIImageView  *view2 = self.viewArray[1];
-    UIImageView  *view3 = self.viewArray[2];
-    UIImageView  *view4 = self.viewArray[3];
+    UIImageControl  *view1 = self.viewArray[0];
+    UIImageControl  *view2 = self.viewArray[1];
+    UIImageControl  *view3 = self.viewArray[2];
+    UIImageControl  *view4 = self.viewArray[3];
     [view3 removeFromSuperview];
     [view4 removeFromSuperview];
     
@@ -261,8 +270,8 @@
 -(void)case4{
     
 
-    UIImageView *view1 = self.viewArray[0];
-    UIImageView *view2 = self.viewArray[1];
+    UIImageControl *view1 = self.viewArray[0];
+    UIImageControl *view2 = self.viewArray[1];
     
     [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(view1.superview).offset(0);
@@ -329,12 +338,7 @@
         make.bottom.equalTo(view4.superview.mas_bottom).offset(0);
         make.width.equalTo(view4.superview.mas_width).multipliedBy(0.25);
     }];
-    
-    
-//    [view1 setBackgroundColor:[UIColor redColor]];
-//    [view2 setBackgroundColor:[UIColor blueColor]];
-//    [view3 setBackgroundColor:[UIColor blackColor]];
-//    [view4 setBackgroundColor:[UIColor greenColor]];
+
     
     [view1 setData:self.dataArray[0]];
     [view2 setData:self.dataArray[1]];

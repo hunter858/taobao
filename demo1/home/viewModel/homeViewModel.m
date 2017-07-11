@@ -288,6 +288,11 @@
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     
     [cell setData:array];
     [cell settype:firstStyle];
@@ -374,6 +379,11 @@
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     
     [cell setData:array];
     [cell settype:type];
@@ -416,6 +426,7 @@
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         [cell setSeparatorInset:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
     }
@@ -427,7 +438,11 @@
     
     [cell setProductData:data];
     [cell settype:type];
-    
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     [sectionModel.cellModelsArr addObject:banner];
 }
 

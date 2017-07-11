@@ -10,6 +10,15 @@
 
 @implementation UIImageControl
 
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initViews];
+    }
+    return  self;
+}
+
+
 -(instancetype)init{
     self = [super init];
     if (self) {
