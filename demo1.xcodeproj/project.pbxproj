@@ -14,7 +14,7 @@
 		E60FA0351F13CD6A00266949 /* productView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0341F13CD6A00266949 /* productView.m */; };
 		E60FA0371F13CD7400266949 /* productView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60FA0361F13CD7400266949 /* productView.xib */; };
 		E60FA0391F13D7A700266949 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0381F13D7A700266949 /* ViewController.m */; };
-		E60FA0421F14780800266949 /* preference.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0411F14780800266949 /* preference.m */; };
+		E60FA0421F14780800266949 /* preferenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0411F14780800266949 /* preferenceView.m */; };
 		E67787F11F11F4E500016913 /* JBCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F01F11F4E500016913 /* JBCountdownView.m */; };
 		E67787F71F12243100016913 /* noticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F61F12243100016913 /* noticeView.m */; };
 		E67787F91F12243C00016913 /* noticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67787F81F12243C00016913 /* noticeView.xib */; };
@@ -81,8 +81,8 @@
 		E60FA0341F13CD6A00266949 /* productView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productView.m; sourceTree = "<group>"; };
 		E60FA0361F13CD7400266949 /* productView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productView.xib; sourceTree = "<group>"; };
 		E60FA0381F13D7A700266949 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E60FA0401F14780800266949 /* preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preference.h; sourceTree = "<group>"; };
-		E60FA0411F14780800266949 /* preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = preference.m; sourceTree = "<group>"; };
+		E60FA0401F14780800266949 /* preferenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preferenceView.h; sourceTree = "<group>"; };
+		E60FA0411F14780800266949 /* preferenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = preferenceView.m; sourceTree = "<group>"; };
 		E67787EF1F11F4E500016913 /* JBCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCountdownView.h; sourceTree = "<group>"; };
 		E67787F01F11F4E500016913 /* JBCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCountdownView.m; sourceTree = "<group>"; };
 		E67787F51F12243100016913 /* noticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noticeView.h; sourceTree = "<group>"; };
@@ -339,8 +339,8 @@
 				E60FA0331F13CD6A00266949 /* productView.h */,
 				E60FA0341F13CD6A00266949 /* productView.m */,
 				E60FA0361F13CD7400266949 /* productView.xib */,
-				E60FA0401F14780800266949 /* preference.h */,
-				E60FA0411F14780800266949 /* preference.m */,
+				E60FA0401F14780800266949 /* preferenceView.h */,
+				E60FA0411F14780800266949 /* preferenceView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -567,7 +567,7 @@
 				E67809AC1F0A6C6A00217CF1 /* homeViewModel.m in Sources */,
 				E67809E81F0E44CD00217CF1 /* twoimageview.m in Sources */,
 				E67809DF1F0D083600217CF1 /* worthBuyingCell.m in Sources */,
-				E60FA0421F14780800266949 /* preference.m in Sources */,
+				E60FA0421F14780800266949 /* preferenceView.m in Sources */,
 				E67809E31F0D094600217CF1 /* worthBuingSmallView.m in Sources */,
 				E67787F71F12243100016913 /* noticeView.m in Sources */,
 				E67809D41F0B886100217CF1 /* hotSaleView.m in Sources */,

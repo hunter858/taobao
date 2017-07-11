@@ -6,9 +6,9 @@
 //  Copyright © 2017年 pengchao. All rights reserved.
 //
 
-#import "preference.h"
+#import "preferenceView.h"
 
-@implementation preference
+@implementation preferenceView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

@@ -10,7 +10,7 @@
 #import "Masonry.h"
 
 
-@interface preference : UIView
+@interface preferenceView : UIView
 @property (nonatomic,strong)UIButton *likeButton;
 @property (nonatomic,strong)UIButton *dontlikeButton;
 @property (nonatomic,strong)UIView *bgview;

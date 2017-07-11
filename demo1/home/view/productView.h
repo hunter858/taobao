@@ -11,7 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "urlTool.h"
 #import "Masonry.h"
-#import "preference.h"
+#import "preferenceView.h"
 
 @interface productView : UIView
 @property (strong, nonatomic) IBOutlet UIImageView *contentImageView;

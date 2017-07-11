@@ -79,24 +79,24 @@
 //    
 //    [self addGestureRecognizer:longPressGr];
     
-    preference *preferenceView = [[preference alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    preferenceView *preference_View = [[preferenceView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
     
-    [self addSubview:preferenceView];
+    [self addSubview:preference_View];
     
-    [preferenceView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(preferenceView.superview.mas_top).offset(0);
-        make.bottom.equalTo(preferenceView.superview.mas_bottom).offset(0);
-        make.left.equalTo(preferenceView.superview.mas_left).offset(0);
-        make.right.equalTo(preferenceView.superview.mas_right).offset(0);
+    [preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(preference_View.superview.mas_top).offset(0);
+        make.bottom.equalTo(preference_View.superview.mas_bottom).offset(0);
+        make.left.equalTo(preference_View.superview.mas_left).offset(0);
+        make.right.equalTo(preference_View.superview.mas_right).offset(0);
     }];
     
     
-    preferenceView.clickdontLikeButton = ^{
+    preference_View.clickdontLikeButton = ^{
         
         NSLog(@"点击了不喜欢按钮");
     };
     
-    preferenceView.clicklikeButton  = ^{
+    preference_View.clicklikeButton  = ^{
         
         NSLog(@"喜欢按钮");
     };
