@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "homeViewModel.h"
+
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *mytableview;
-@property (nonatomic,strong) homeViewModel *viewModel;
 @end
 

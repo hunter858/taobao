@@ -8,21 +8,24 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "HomeViewController.h"
 @interface AppDelegate ()
-@property (nonatomic,strong)UINavigationController *navController;
+
 @end
 
 @implementation AppDelegate
 
++(AppDelegate *)getAppDelegate{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
-//    ViewController *control =[[ViewController alloc]init];
-//    self.navController = [[UINavigationController alloc]
-//                          initWithRootViewController:control];
-//    self.window.rootViewController = self.navController;
-    
+    HomeViewController *control =[[HomeViewController alloc]init];
+    self.navController = [[UINavigationController alloc]initWithRootViewController:control];
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
     return YES;
 }
 

@@ -10,4 +10,17 @@
 
 @implementation AppRouterTool
 
++(void)pushWithUrl:(NSString *)url{
+    
+    url = [urlTool getUrlwithUrl:url];
+    
+    
+    
+    AppDelegate *app =  [AppDelegate getAppDelegate];
+    webViewController *webControl = [[webViewController alloc]init];
+    webControl.url = url;
+    [app.navController pushViewController:webControl animated:YES];
+    
+}
+
 @end

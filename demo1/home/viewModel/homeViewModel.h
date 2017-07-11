@@ -15,6 +15,8 @@
 #import "twoImageCell.h"
 #import "titleMoreCell.h"
 #import "worthBuyingCell.h"
+#import "AppRouterTool.h"
+
 
 typedef enum {
     template,   //轮播模版

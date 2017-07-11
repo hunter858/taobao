@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#import "webViewController.h"
+#import "urlTool.h"
 
 @interface AppRouterTool : NSObject
+
++(void)pushWithUrl:(NSString *)url;
 
 @end

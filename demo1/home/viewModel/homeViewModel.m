@@ -29,6 +29,7 @@
 
 -(void)setData:(void (^)())callback{
     [self loadData];
+    
     [self setScrollviewCell];
     [self setBigMenuCell];
     [self setAdvertisementCell];
@@ -72,7 +73,6 @@
 
     //推荐内容 分组数据
     self.Model = [self getDataWithPath:@"taobao.json"];
-    
     
     //产品数据
     self.productModel = [self getDataWithPath:@"taobaoProduct.json"];
@@ -120,6 +120,12 @@
     [cell setData:[self getDataArray:@"tbanner"] Blcok:^{
         
     }];
+    
+    cell.clickIndex = ^(NSString *URL){
+      
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
 
     [sectionModel.cellModelsArr addObject:banner];
 }

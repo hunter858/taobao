@@ -17,6 +17,10 @@
 		E60FA0421F14780800266949 /* preferenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0411F14780800266949 /* preferenceView.m */; };
 		E60FA0461F14993000266949 /* urlTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0451F14993000266949 /* urlTool.m */; };
 		E60FA0491F14BC4100266949 /* AppRouterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0481F14BC4100266949 /* AppRouterTool.m */; };
+		E60FA04D1F14C87B00266949 /* webViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA04B1F14C87B00266949 /* webViewController.m */; };
+		E60FA04E1F14C87B00266949 /* webViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60FA04C1F14C87B00266949 /* webViewController.xib */; };
+		E60FA0551F14C9E200266949 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0531F14C9E200266949 /* HomeViewController.m */; };
+		E60FA0561F14C9E200266949 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60FA0541F14C9E200266949 /* HomeViewController.xib */; };
 		E67787F11F11F4E500016913 /* JBCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F01F11F4E500016913 /* JBCountdownView.m */; };
 		E67787F71F12243100016913 /* noticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F61F12243100016913 /* noticeView.m */; };
 		E67787F91F12243C00016913 /* noticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67787F81F12243C00016913 /* noticeView.xib */; };
@@ -88,6 +92,12 @@
 		E60FA0451F14993000266949 /* urlTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = urlTool.m; sourceTree = "<group>"; };
 		E60FA0471F14BC4100266949 /* AppRouterTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRouterTool.h; sourceTree = "<group>"; };
 		E60FA0481F14BC4100266949 /* AppRouterTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRouterTool.m; sourceTree = "<group>"; };
+		E60FA04A1F14C87B00266949 /* webViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webViewController.h; sourceTree = "<group>"; };
+		E60FA04B1F14C87B00266949 /* webViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewController.m; sourceTree = "<group>"; };
+		E60FA04C1F14C87B00266949 /* webViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = webViewController.xib; sourceTree = "<group>"; };
+		E60FA0521F14C9E200266949 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		E60FA0531F14C9E200266949 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		E60FA0541F14C9E200266949 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E67787EF1F11F4E500016913 /* JBCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCountdownView.h; sourceTree = "<group>"; };
 		E67787F01F11F4E500016913 /* JBCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCountdownView.m; sourceTree = "<group>"; };
 		E67787F51F12243100016913 /* noticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noticeView.h; sourceTree = "<group>"; };
@@ -288,6 +298,12 @@
 		E67809941F0A697200217CF1 /* control */ = {
 			isa = PBXGroup;
 			children = (
+				E60FA04A1F14C87B00266949 /* webViewController.h */,
+				E60FA04B1F14C87B00266949 /* webViewController.m */,
+				E60FA04C1F14C87B00266949 /* webViewController.xib */,
+				E60FA0521F14C9E200266949 /* HomeViewController.h */,
+				E60FA0531F14C9E200266949 /* HomeViewController.m */,
+				E60FA0541F14C9E200266949 /* HomeViewController.xib */,
 			);
 			path = control;
 			sourceTree = "<group>";
@@ -482,12 +498,14 @@
 				E67809701F0A632200217CF1 /* LaunchScreen.storyboard in Resources */,
 				E67809CC1F0B7FA600217CF1 /* advertisementCell.xib in Resources */,
 				E67787FB1F1239DE00016913 /* taobao.json in Resources */,
+				E60FA0561F14C9E200266949 /* HomeViewController.xib in Resources */,
 				E60FA0321F13C49500266949 /* taobaoProduct.json in Resources */,
 				E60FA0301F13B4CA00266949 /* oneImageView.xib in Resources */,
 				E678099F1F0A6B4100217CF1 /* bannerCell.xib in Resources */,
 				E67788031F126A4200016913 /* Assets.xcassets in Resources */,
 				E67809BA1F0B6BBA00217CF1 /* smallIconView.xib in Resources */,
 				E67809E01F0D083600217CF1 /* worthBuyingCell.xib in Resources */,
+				E60FA04E1F14C87B00266949 /* webViewController.xib in Resources */,
 				E67809D61F0B886F00217CF1 /* hotSaleView.xib in Resources */,
 				E67809E51F0D095200217CF1 /* worthBuingSmallView.xib in Resources */,
 				E60FA0371F13CD7400266949 /* productView.xib in Resources */,
@@ -575,6 +593,7 @@
 				E67809A31F0A6B5400217CF1 /* limitSaleCell.m in Sources */,
 				E60FA0461F14993000266949 /* urlTool.m in Sources */,
 				E67809D01F0B829F00217CF1 /* twoImageCell.m in Sources */,
+				E60FA04D1F14C87B00266949 /* webViewController.m in Sources */,
 				E67809621F0A632200217CF1 /* main.m in Sources */,
 				E67809B31F0B345800217CF1 /* TableViewDataModel.m in Sources */,
 				E67809DA1F0B9C8400217CF1 /* titleMoreCell.m in Sources */,
@@ -592,6 +611,7 @@
 				E60FA02E1F13B4B600266949 /* oneImageView.m in Sources */,
 				E60FA0391F13D7A700266949 /* ViewController.m in Sources */,
 				E67787FE1F123C1E00016913 /* homeTaobaoModel.m in Sources */,
+				E60FA0551F14C9E200266949 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

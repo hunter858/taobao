@@ -8,6 +8,10 @@
 
 #import "bannerCell.h"
 
+@interface bannerCell ()
+@property (nonatomic,strong)NSArray *dataArray;
+@end
+
 @implementation bannerCell
 - (id)initWithFrame:(CGRect)frame
 {
@@ -75,8 +79,9 @@
         imageUrl *image_Url = [item.imageUrl firstObject];
         [imageArray addObject:[urlTool getUrlwithUrl: image_Url.imgUrl]];
     }
-    
     self.cycleScrollerView.imageURLStringsGroup = imageArray;
+    
+    self.dataArray = array;
     
     if (block) {
         block();
@@ -95,13 +100,39 @@
     self.cycleScrollerView.autoScrollTimeInterval = 5.0;// 自动滚动时间间隔
     self.cycleScrollerView.pageDotColor = [UIColor whiteColor];
     self.cycleScrollerView.currentPageDotColor = COLOR(251, 61, 26, 1);
-    
     [self.contentView addSubview:self.cycleScrollerView];
+    self.cycleScrollerView.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
 }
+
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    
+    if (index <self.dataArray.count) {
+        
+        itemsModel *Model = self.dataArray[index];
+        
+        if (self.clickIndex != NULL) {
+            
+            self.clickIndex(Model.targetUrl);
+        }
+
+        
+    }
+    
+}
+
+
+-(void)clickIndex:(void(^)(NSString *URL))block{
+    
+    
+    
+}
+
+
 
 @end
