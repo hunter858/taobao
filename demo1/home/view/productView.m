@@ -73,37 +73,16 @@
 -(void)initViews{
     
     //添加长按手势；
-//    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
-//    longPressGr.minimumPressDuration = 0.5;
-//    
-//    
-//    [self addGestureRecognizer:longPressGr];
-    
-    preferenceView *preference_View = [[preferenceView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-    
-    [self addSubview:preference_View];
-    
-    [preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(preference_View.superview.mas_top).offset(0);
-        make.bottom.equalTo(preference_View.superview.mas_bottom).offset(0);
-        make.left.equalTo(preference_View.superview.mas_left).offset(0);
-        make.right.equalTo(preference_View.superview.mas_right).offset(0);
-    }];
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 0.5;
     
     
-    preference_View.clickdontLikeButton = ^{
-        
-        NSLog(@"点击了不喜欢按钮");
-    };
+    [self addGestureRecognizer:longPressGr];
     
-    preference_View.clicklikeButton  = ^{
-        
-        NSLog(@"喜欢按钮");
-    };
-}
-//
-//-(void)addBgview{
-//    
+    }
+
+-(void)addBgview{
+    
 //    UIView *bgview =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
 //    [bgview setBackgroundColor:[UIColor blackColor]];
 //    bgview.alpha = 0.8;
@@ -184,18 +163,39 @@
 //        
 //
 //    }];
-//    
-//
-//    
-//}
+    
+    preferenceView *preference_View = [preferenceView sharedManager];
+    
+    [self addSubview:preference_View];
+    
+    [preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(preference_View.superview.mas_top).offset(0);
+        make.bottom.equalTo(preference_View.superview.mas_bottom).offset(0);
+        make.left.equalTo(preference_View.superview.mas_left).offset(0);
+        make.right.equalTo(preference_View.superview.mas_right).offset(0);
+    }];
+    
+    
+    preference_View.clickdontLikeButton = ^{
+        
+        NSLog(@"点击了不喜欢按钮");
+    };
+    
+    preference_View.clicklikeButton  = ^{
+        
+        NSLog(@"喜欢按钮");
+    };
 
-//-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
-//{
-//    if(gesture.state == UIGestureRecognizerStateBegan)
-//    {
-//        [self addBgview];
-//    }
-//}
+    
+}
+
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        [self addBgview];
+    }
+}
 
 
 

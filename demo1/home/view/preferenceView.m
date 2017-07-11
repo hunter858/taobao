@@ -10,6 +10,16 @@
 
 @implementation preferenceView
 
++ (preferenceView *)sharedManager
+{
+    static preferenceView *share = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        share = [[self alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    });
+    return share;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -32,9 +42,6 @@
     [likeButton setTitle:@"找相似" forState:UIControlStateNormal];
     [dontlikeButton setTitle:@"不喜欢" forState:UIControlStateNormal];
     
-    
-    [likeButton addTarget:self action:@selector(likeButton:) forControlEvents:UIControlEventTouchUpInside];
-    [dontlikeButton addTarget:self action:@selector(dontlikeAction) forControlEvents:UIControlEventTouchUpInside];
     
     
     [likeButton setBackgroundColor:[UIColor redColor]];
@@ -72,10 +79,14 @@
     self.dontlikeButton = dontlikeButton;
     
     
-    //添加手势
+    //添加点击事件
+    
+    [likeButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [dontlikeButton addTarget:self action:@selector(dontlikeAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     //添加长按手势；
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
-    longPressGr.minimumPressDuration = 0.5;
+    longPressGr.minimumPressDuration = 0.3;
     
     [self addGestureRecognizer:longPressGr];
 }
