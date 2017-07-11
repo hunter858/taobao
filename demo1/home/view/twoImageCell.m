@@ -7,16 +7,20 @@
 //
 
 #import "twoImageCell.h"
+#import "UIImageControl.h"
 
 @interface twoImageCell ()
 
+@property (nonatomic,strong)    UIImageControl *leftImageView ;
+@property (nonatomic,strong)    UIImageControl *rightTopleftImageView ;
+@property (nonatomic,strong)    UIImageControl *rightTopRightImageView ;
+@property (nonatomic,strong)    UIImageControl *rightLeftBootImageView ;
+@property (nonatomic,strong)    UIImageControl *rightRightBootImageView ;
 
-@property (nonatomic,strong)    UIImageView *leftImageView ;
-@property (nonatomic,strong)    UIImageView *rightTopleftImageView ;
-@property (nonatomic,strong)    UIImageView *rightTopRightImageView ;
-@property (nonatomic,strong)    UIImageView *rightLeftBootImageView ;
-@property (nonatomic,strong)    UIImageView *rightRightBootImageView ;
+
+@property (nonatomic,strong)NSMutableArray *viewArray;
 @end
+
 
 @implementation twoImageCell
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -65,12 +69,18 @@
 
 -(void)initViews{
     
-     _leftImageView = [[UIImageView alloc]init];
+     _leftImageView = [[UIImageControl alloc]init];
     [self.contentView addSubview:_leftImageView];
-     _rightTopleftImageView = [[UIImageView alloc]init];
-    _rightTopRightImageView = [[UIImageView alloc]init];
-     _rightLeftBootImageView = [[UIImageView alloc]init];
-    _rightRightBootImageView = [[UIImageView alloc]init];
+     _rightTopleftImageView = [[UIImageControl alloc]init];
+    _rightTopRightImageView = [[UIImageControl alloc]init];
+     _rightLeftBootImageView = [[UIImageControl alloc]init];
+    _rightRightBootImageView = [[UIImageControl alloc]init];
+    
+    _leftImageView.userInteractionEnabled = YES;
+    _rightTopleftImageView.userInteractionEnabled = YES;
+    _rightTopRightImageView.userInteractionEnabled = YES;
+    _rightLeftBootImageView.userInteractionEnabled = YES;
+    _rightRightBootImageView.userInteractionEnabled = YES;
     
     [self.contentView  addSubview:_rightTopleftImageView];
     [self.contentView  addSubview:_rightTopRightImageView];
@@ -109,23 +119,17 @@
         make.right.equalTo(_rightRightBootImageView.superview.mas_right).offset(0);
         make.height.equalTo(_rightRightBootImageView.superview).multipliedBy(0.5);
     }];
-    
-    [_leftImageView setBackgroundColor:[UIColor redColor]];
-    [_rightTopleftImageView setBackgroundColor:[UIColor greenColor]];
-    [_rightTopRightImageView setBackgroundColor:[UIColor grayColor]];
-    [_rightLeftBootImageView setBackgroundColor:[UIColor darkGrayColor]];
-    [_rightRightBootImageView setBackgroundColor:[UIColor blueColor]];
-    
+
     [self layoutIfNeeded];
+    
+    self.viewArray = @[_leftImageView,_rightTopleftImageView,_rightTopRightImageView,_rightLeftBootImageView,_rightRightBootImageView].mutableCopy;
+
 }
 
 
 
 -(void)setData:(NSArray *)array{
-    
-
-
-    
+    __weak typeof(self) weakself=self;
     
     for (int i=0 ; i<array.count; i++) {
         
@@ -134,33 +138,72 @@
         NSString *url = [urlTool getUrlwithUrl:image_Url.imgUrl];
         if (i==0) {
             
-            [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:url]
+            
+            [self.leftImageView.imageView sd_setImageWithURL:[NSURL URLWithString:url]
                                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+            
+            [[self.leftImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                         if (weakself.clickIndex!=NULL) {
+                             weakself.clickIndex(item.targetUrl);
+                         }
+             }];
         }
         if (i==1) {
             
             imageUrl *second_image_Url = [item.imageUrl lastObject];
             NSString *righUrl =second_image_Url.imgUrl;
-            [self.rightTopleftImageView sd_setImageWithURL:[NSURL URLWithString:url]
+            [self.rightTopleftImageView.imageView sd_setImageWithURL:[NSURL URLWithString:url]
                                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             
-            [self.rightTopRightImageView sd_setImageWithURL:[NSURL URLWithString:[urlTool getUrlwithUrl:righUrl]]
+            [self.rightTopRightImageView.imageView sd_setImageWithURL:[NSURL URLWithString:[urlTool getUrlwithUrl:righUrl]]
                                   placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             
+            
+            //点击方法
+            [[self.rightTopleftImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(item.targetUrl);
+                 }
+             }];
+            [[self.rightTopRightImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(item.targetUrl);
+                 }
+             }];
             
         }
         if (i==2) {
             
             imageUrl *second_image_Url = [item.imageUrl lastObject];
             NSString *righUrl =second_image_Url.imgUrl;
-            [self.rightLeftBootImageView sd_setImageWithURL:[NSURL URLWithString:url]
+            [self.rightLeftBootImageView.imageView sd_setImageWithURL:[NSURL URLWithString:url]
                                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             
-            [self.rightRightBootImageView sd_setImageWithURL:[NSURL URLWithString:[urlTool getUrlwithUrl:righUrl]]
+            [self.rightRightBootImageView.imageView sd_setImageWithURL:[NSURL URLWithString:[urlTool getUrlwithUrl:righUrl]]
                                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             
+            //点击方法
+            
+            [[self.rightLeftBootImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(item.targetUrl);
+                 }
+             }];
+            [[self.rightRightBootImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickIndex!=NULL) {
+                     weakself.clickIndex(item.targetUrl);
+                 }
+             }];
             
         }
+        
+
         
     }
 

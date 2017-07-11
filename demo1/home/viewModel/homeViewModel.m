@@ -202,6 +202,11 @@
     };
     [cell setData:[self getDataArray:@"trushbuy5"]];
 
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };

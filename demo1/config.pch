@@ -26,6 +26,9 @@
 
 //常用类倒入
 #import <ReactiveObjC/ReactiveObjC.h>
-
+#import "homeTaobaoModel.h"
+#import "UIImageView+WebCache.h"
+#import "urlTool.h"
+#import "Masonry.h"
 
 #endif /* config_pch */

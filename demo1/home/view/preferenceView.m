@@ -43,7 +43,6 @@
     [dontlikeButton setTitle:@"不喜欢" forState:UIControlStateNormal];
     
     
-    
     [likeButton setBackgroundColor:[UIColor redColor]];
     [dontlikeButton setBackgroundColor:[UIColor blueColor]];
     
