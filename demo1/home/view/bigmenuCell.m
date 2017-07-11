@@ -7,6 +7,7 @@
 //
 
 #import "bigmenuCell.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @implementation bigmenuCell
 - (id)initWithFrame:(CGRect)frame
@@ -61,7 +62,7 @@
 
 -(void)setdata:(NSArray *)array Block:(void (^)())block{
     
-    
+    __weak typeof(self) weakself=self;
     //  取数组的第一条数据，不知道，楼主猜的；
     NSMutableArray *imageArray = @[].mutableCopy;
     for (int i=0 ; i<array.count; i++) {
@@ -83,21 +84,29 @@
         itemsModel *item = (itemsModel *) imageArray[i];
         CGFloat x = i*iconWidth;
         CGFloat y = (i/count)*iconHeight;
-        
+        smallIconView *iconView = nil;
         if (i<5) {
             
-            smallIconView *iconView = [[smallIconView alloc]initWithFrame:CGRectMake(x, y, iconWidth, iconHeight)];
+            iconView = [[smallIconView alloc]initWithFrame:CGRectMake(x, y, iconWidth, iconHeight)];
             [iconView setData:[item toDictionary]];
             [self.contentView addSubview:iconView];
             
         }
         if (i>=5) {
             CGFloat x = (i-5)*iconWidth;
-            smallIconView *iconView = [[smallIconView alloc]initWithFrame:CGRectMake(x, y, iconWidth, iconHeight)];
+            iconView = [[smallIconView alloc]initWithFrame:CGRectMake(x, y, iconWidth, iconHeight)];
             [iconView setData:[item toDictionary]];
             [self.contentView addSubview:iconView];
         }
         
+        //处理点击事件
+        [[iconView rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+             if (weakself.clickIndex!=NULL) {
+                 weakself.clickIndex(item.targetUrl);
+             }
+             
+         }];
         
     }
     
@@ -108,6 +117,10 @@
     
 }
 
+
+-(void)touch{
+    NSLog(@"xxx");
+}
 
 
 

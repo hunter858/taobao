@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface advertisementCell : UITableViewCell
-
+@property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 @end

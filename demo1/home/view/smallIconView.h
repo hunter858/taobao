@@ -12,7 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "urlTool.h"
 
-@interface smallIconView : UIView
+@interface smallIconView : UIControl
 
 -(void)setData:(id)object;
 

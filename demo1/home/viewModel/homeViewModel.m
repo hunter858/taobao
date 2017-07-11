@@ -146,6 +146,11 @@
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     
     [sectionModel.cellModelsArr addObject:banner];
 }
