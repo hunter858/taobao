@@ -10,6 +10,7 @@
 #import "homeViewModel.h"
 #import "Masonry.h"
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 @end
 
@@ -36,7 +37,7 @@
         make.left.equalTo(weakself.view.mas_left).offset(0);
         make.right.equalTo(weakself.view.mas_right).offset(0);
     }];
-    [self.view layoutIfNeeded];
+    [self.myTableView layoutIfNeeded];
     self.mytableview.separatorColor = COLOR(234, 234, 234, 0.5);
     
 }

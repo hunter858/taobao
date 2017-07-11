@@ -36,6 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="DhI-NW-fLb"/>
                     <connections>
+                        <outlet property="myTableView" destination="40y-ny-zuZ" id="YsU-Ks-7qL"/>
                         <outlet property="mytableview" destination="40y-ny-zuZ" id="Xh6-Eg-AMb"/>
                     </connections>
                 </viewController>
