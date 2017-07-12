@@ -25,7 +25,7 @@
                             <constraint firstAttribute="width" secondItem="rto-8M-jCt" secondAttribute="height" multiplier="1:1" id="YaH-xh-nrQ"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyV-m8-WVo">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyV-m8-WVo" customClass="UIControl">
                         <rect key="frame" x="273" y="5" width="39" height="23"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uua-XT-ag7">
@@ -56,14 +56,23 @@
                             <constraint firstAttribute="height" constant="20" id="7GS-ss-zKp"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="1" green="0.48636149740000001" blue="0.12657231669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.80494523048400879" green="0.11014444380998611" blue="0.017873011529445648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UFj-gT-Ji2">
+                        <rect key="frame" x="8" y="6" width="64" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="6yf-lZ-04v"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="r7s-SU-8eG" firstAttribute="centerY" secondItem="rto-8M-jCt" secondAttribute="centerY" id="1Lw-M0-Wgo"/>
                     <constraint firstItem="rto-8M-jCt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7VC-nf-uUQ"/>
+                    <constraint firstItem="UFj-gT-Ji2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="At2-h5-20L"/>
                     <constraint firstAttribute="bottom" secondItem="JyV-m8-WVo" secondAttribute="bottom" constant="5" id="LGg-9S-Hzu"/>
+                    <constraint firstAttribute="bottom" secondItem="UFj-gT-Ji2" secondAttribute="bottom" constant="6" id="NrJ-1F-XcM"/>
+                    <constraint firstItem="UFj-gT-Ji2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Pbr-FW-bsk"/>
                     <constraint firstItem="r7s-SU-8eG" firstAttribute="leading" secondItem="rto-8M-jCt" secondAttribute="trailing" constant="5" id="Y8U-tB-pg9"/>
                     <constraint firstAttribute="trailing" secondItem="JyV-m8-WVo" secondAttribute="trailing" constant="8" id="cAn-17-c9v"/>
                     <constraint firstItem="rto-8M-jCt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="p24-zK-cXU"/>
@@ -73,8 +82,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="MoreView" destination="JyV-m8-WVo" id="h0w-AD-T3f"/>
                 <outlet property="iconImageview" destination="rto-8M-jCt" id="7Ai-Sj-bL1"/>
+                <outlet property="leftimageView" destination="UFj-gT-Ji2" id="Luy-NI-t2U"/>
+                <outlet property="moreControl" destination="JyV-m8-WVo" id="blv-4C-M26"/>
+                <outlet property="rightIcon" destination="KAt-Tb-SXI" id="Cew-LI-7l0"/>
+                <outlet property="rightLabel" destination="uua-XT-ag7" id="sud-Kr-UU3"/>
                 <outlet property="titleLabel" destination="r7s-SU-8eG" id="IAA-J2-NYO"/>
             </connections>
             <point key="canvasLocation" x="43" y="65.5"/>

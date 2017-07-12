@@ -17,25 +17,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WX20170709-142920" translatesAutoresizingMaskIntoConstraints="NO" id="K5D-80-xIy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                    </imageView>
-                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                <constraints>
-                    <constraint firstItem="K5D-80-xIy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IRH-C5-jgl"/>
-                    <constraint firstAttribute="trailing" secondItem="K5D-80-xIy" secondAttribute="trailing" id="R14-PO-pGP"/>
-                    <constraint firstItem="K5D-80-xIy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qWt-nY-vlW"/>
-                    <constraint firstAttribute="bottom" secondItem="K5D-80-xIy" secondAttribute="bottom" id="rqO-99-sEA"/>
-                </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="showImageView" destination="K5D-80-xIy" id="JON-tF-ksi"/>
-            </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="WX20170709-142920" width="381" height="74"/>
-    </resources>
 </document>

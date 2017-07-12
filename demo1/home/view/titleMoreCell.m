@@ -43,6 +43,8 @@
 }
 
 -(void)setData:(id)data{
+    
+    __weak typeof(self) weakself=self;
     if([data isKindOfClass:[itemsModel class]]){
 
         
@@ -51,11 +53,20 @@
         imageUrl *urlModel =  [ model.imageUrl firstObject];
         titleModel *title = [model.title firstObject];
         
-        
         NSString *imageURl = [urlTool getUrlwithUrl:urlModel.imgUrl];
         self.titleLabel.text = title.valueDesc;
         [self.iconImageview sd_setImageWithURL:[NSURL URLWithString:imageURl]];
-                
+        
+        
+        
+        
+        [[self.moreControl rac_signalForControlEvents:UIControlEventTouchUpInside]
+         subscribeNext:^(id x) {
+             if (weakself.clickIndex!=NULL) {
+                 weakself.clickIndex(model.targetUrl);
+             }
+             
+         }];
         
     }
 

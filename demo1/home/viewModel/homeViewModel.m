@@ -48,7 +48,8 @@
     [self addGlobalBuyCell];   // 全球购
     [self setLimitSaleCell];   //广告；
     [self setSpacewithHeight:8];
-        
+    
+    [self setHotMarketTitleCell];
     [self sethotMarketCell];  //热门市场
     [self setSpacewithHeight:8];
     
@@ -163,7 +164,9 @@
         return cell;
     };
     [cell setData:[self getDataArray:@"tbanner2"]];
-    
+    cell.clickIndex = ^(NSString *URL){
+        [AppRouterTool pushWithUrl:URL];
+    };
     [sectionModel.cellModelsArr addObject:banner];
 }
 
@@ -246,6 +249,11 @@
         return cell;
     };
     [cell setData:data];
+    cell.clickIndex = ^(NSString *URL){
+        
+        [AppRouterTool pushWithUrl:URL];
+        
+    };
     
     [sectionModel.cellModelsArr addObject:banner];
 }
@@ -354,16 +362,22 @@
 }
 
 
+-(void)setHotMarketTitleCell{
+    //热门市场 title cell
+    NSArray *allData = [self getDataArray:@"tcategory5_header"];
+    itemsModel *item = (itemsModel *)[allData firstObject];
+    [self setTitleMoreCell:item];
+    
+}
+
 -(void)sethotMarketCell{
     
     
-    NSArray *allData = [self getDataArray:@"tfeatures5"];
-    
-    
-#pragma error 这里的样式还没完全搞定
+//    NSArray *allData = [self getDataArray:@"tfeatures5"];
     
     //1.全球购
     NSArray *firstData = [self getDataArray:@"tcategory5_4i4pic"];
+    
     //刚好4条数据
     [self hotmarketCell:firstData type:fourTitleStyle];
     

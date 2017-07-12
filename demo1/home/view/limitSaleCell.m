@@ -8,8 +8,10 @@
 
 #import "limitSaleCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIImageControl.h"
+
 @interface limitSaleCell ()
-@property (strong, nonatomic) IBOutlet UIImageView *showImageView;
+@property (strong, nonatomic) UIImageControl *showImageView;
 
 @end
 
@@ -56,15 +58,36 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.showImageView = [[UIImageControl alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    [self.contentView addSubview:self.showImageView];
+    
+    [_showImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_showImageView.superview.mas_top).offset(0);
+        make.bottom.equalTo(_showImageView.superview.mas_bottom).offset(0);
+        make.left.equalTo(_showImageView.superview.mas_left).offset(0);
+        make.right.equalTo(_showImageView.superview.mas_right).offset(0);
+    }];
 }
 
 - (void)setData:(NSArray *)array{
     
+    
     itemsModel *model = (itemsModel *)[array firstObject];
     imageUrl *imageUrl = [model.imageUrl firstObject];
     NSString *url = [urlTool getUrlwithUrl:imageUrl.imgUrl];
-    [self.showImageView sd_setImageWithURL:[NSURL URLWithString:url]
+    [self.showImageView.imageView sd_setImageWithURL:[NSURL URLWithString:url]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    
+    __weak typeof(self) weakself=self;
+    [[self.showImageView rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         if (weakself.clickIndex!=NULL) {
+             weakself.clickIndex(model.targetUrl);
+         }
+         
+     }];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

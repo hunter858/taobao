@@ -17,7 +17,7 @@
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor darkGrayColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:18], NSFontAttributeName, nil]];
     //    self.navigationBar.barTintColor = [UIColor whiteColor];//背景色
     //    self.navigationBar.barTintColor = navigationBarColor;//背景色
-    [self.navigationBar setTintColor:RGBA(35, 216, 150, 1)];//左右标题颜色
+    [self.navigationBar setTintColor:[UIColor whiteColor]];//左右标题颜色
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBg"] forBarMetrics:UIBarMetricsDefault];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self initviews];

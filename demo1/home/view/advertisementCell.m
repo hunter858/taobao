@@ -57,9 +57,9 @@
     //我真的是太懒了 【捂脸】
     //会有个bug 就是，手工滚动的话，公告也会跟着滚动的
     
-    NSArray *imageNames =@[@"1111",
-                           @"2222",
-                           @"3333"];
+    NSArray *imageNames =@[@"whiteBg",
+                           @"whiteBg",
+                           @"whiteBg"];
     
     CGRect bounds = self.rightView.bounds;
     self.cycleScrollerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height) shouldInfiniteLoop:YES imageNamesGroup:imageNames];

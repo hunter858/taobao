@@ -15,4 +15,6 @@
 
 - (void)setData:(NSArray *)array;
 
+@property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
+//用户接受点击URL的block 回调
 @end
