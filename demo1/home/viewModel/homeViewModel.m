@@ -38,26 +38,20 @@
     [self setseaSaleCell];
     [self setSpacewithHeight:8];
     
-    [self setTitleMoreCell];
-    [self setSpacewithHeight:8];
     
     [self worthByArrayCell];   //超实惠
     [self setSpacewithHeight:8];
     
-    [self setTitleMoreCell];
     [self addTmallmustBuyCell]; //天猫避必逛
-    
     [self setSpacewithHeight:8];
-    [self setTitleMoreCell];
+    
     [self addGlobalBuyCell];   // 全球购
     [self setLimitSaleCell];   //广告；
     [self setSpacewithHeight:8];
         
     [self sethotMarketCell];  //热门市场
+    [self setSpacewithHeight:8];
     
-    [self setSpacewithHeight:8];
-    [self setSpacewithHeight:8];
-    [self setSpacewithHeight:8];
     [self addProductCell];    //重量级的产品数据，佩服taobao数据真多 200多条
     
     
@@ -239,7 +233,8 @@
     
     [sectionModel.cellModelsArr addObject:banner];
 }
--(void)setTitleMoreCell{
+-(void)setTitleMoreCell:(id)data{
+    
     TableViewSectionModel *sectionModel=[self getSectionModel];
     CellModel *banner =[[CellModel alloc]init];
     titleMoreCell *cell =[[titleMoreCell alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
@@ -250,6 +245,7 @@
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    [cell setData:data];
     
     [sectionModel.cellModelsArr addObject:banner];
 }
@@ -257,9 +253,14 @@
 
 -(void)worthByArrayCell{
     
-    //1.title cell
-    
     NSArray *allData = [self getDataArray:@"tcheap5"];
+    
+    //1.title cell (第一个item 其实是标题)
+    
+    itemsModel *item = (itemsModel *)[allData firstObject];
+    [self setTitleMoreCell:item];
+    
+    //2.proudct Cell
     NSMutableArray *array = @[].mutableCopy;
     
     for (int i = 1; i<allData.count; i++) {
@@ -272,8 +273,6 @@
             [array removeAllObjects];// 清空
         }
     }
-    //2.proudct Cell
-    
     
 }
 
@@ -302,7 +301,12 @@
 
 -(void)addTmallmustBuyCell{
     
+    //1.title cell (第一个item 其实是标题)
     NSArray *allData = [self getDataArray:@"tmall5"];
+    itemsModel *item = (itemsModel *)[allData firstObject];
+    [self setTitleMoreCell:item];
+    
+    //2.天猫必买的产品内容
     NSMutableArray *twoProductArray = @[].mutableCopy;
     NSMutableArray *fourProductArray = @[].mutableCopy;
     for (int i = 1; i<allData.count; i++) {
@@ -323,8 +327,15 @@
 }
 
 -(void)addGlobalBuyCell{
-    //全球购
+    
+    //1.title cell (第一个item 其实是标题)
     NSArray *allData = [self getDataArray:@"tfeatures5"];
+    itemsModel *item = (itemsModel *)[allData firstObject];
+    [self setTitleMoreCell:item];
+    
+    
+    //全球购
+
     NSMutableArray *twoProductArray = @[].mutableCopy;
     NSMutableArray *fourProductArray = @[].mutableCopy;
     for (int i = 1; i<allData.count; i++) {
@@ -344,6 +355,9 @@
 
 
 -(void)sethotMarketCell{
+    
+    
+    NSArray *allData = [self getDataArray:@"tfeatures5"];
     
     
 #pragma error 这里的样式还没完全搞定

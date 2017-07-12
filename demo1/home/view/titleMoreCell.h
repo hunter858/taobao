@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface titleMoreCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageview;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UIView *MoreView;
+
+
+@property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
+
+
+-(void)setData:(id )data;
 
 @end

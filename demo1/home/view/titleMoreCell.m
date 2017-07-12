@@ -41,6 +41,26 @@
     }
     return  self;
 }
+
+-(void)setData:(id)data{
+    if([data isKindOfClass:[itemsModel class]]){
+
+        
+        itemsModel *model = data;
+        
+        imageUrl *urlModel =  [ model.imageUrl firstObject];
+        titleModel *title = [model.title firstObject];
+        
+        
+        NSString *imageURl = [urlTool getUrlwithUrl:urlModel.imgUrl];
+        self.titleLabel.text = title.valueDesc;
+        [self.iconImageview sd_setImageWithURL:[NSURL URLWithString:imageURl]];
+                
+        
+    }
+
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

@@ -58,6 +58,7 @@
 		E67809E51F0D095200217CF1 /* worthBuingSmallView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67809E41F0D095200217CF1 /* worthBuingSmallView.xib */; };
 		E67809E81F0E44CD00217CF1 /* twoimageview.m in Sources */ = {isa = PBXBuildFile; fileRef = E67809E71F0E44CD00217CF1 /* twoimageview.m */; };
 		E67809EA1F0E44F500217CF1 /* twoimageview.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67809E91F0E44F500217CF1 /* twoimageview.xib */; };
+		E6F845321F1607240035D76B /* AppNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F845311F1607240035D76B /* AppNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,8 @@
 		E67809E61F0E44CD00217CF1 /* twoimageview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoimageview.h; sourceTree = "<group>"; };
 		E67809E71F0E44CD00217CF1 /* twoimageview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoimageview.m; sourceTree = "<group>"; };
 		E67809E91F0E44F500217CF1 /* twoimageview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = twoimageview.xib; sourceTree = "<group>"; };
+		E6F845301F1607240035D76B /* AppNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNavigationController.h; sourceTree = "<group>"; };
+		E6F845311F1607240035D76B /* AppNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppNavigationController.m; sourceTree = "<group>"; };
 		EC686A868C5DBD68238CF610 /* Pods-demo1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demo1/Pods-demo1.debug.xcconfig"; sourceTree = "<group>"; };
 		F839C48EE3476B084F721B1C /* Pods_demo1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -307,6 +310,8 @@
 				E60FA0521F14C9E200266949 /* HomeViewController.h */,
 				E60FA0531F14C9E200266949 /* HomeViewController.m */,
 				E60FA0541F14C9E200266949 /* HomeViewController.xib */,
+				E6F845301F1607240035D76B /* AppNavigationController.h */,
+				E6F845311F1607240035D76B /* AppNavigationController.m */,
 			);
 			path = control;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				E67809D41F0B886100217CF1 /* hotSaleView.m in Sources */,
 				E60FA0351F13CD6A00266949 /* productView.m in Sources */,
 				E67809B81F0B6BA900217CF1 /* smallIconView.m in Sources */,
+				E6F845321F1607240035D76B /* AppNavigationController.m in Sources */,
 				E67787F11F11F4E500016913 /* JBCountdownView.m in Sources */,
 				E60FA02E1F13B4B600266949 /* oneImageView.m in Sources */,
 				E60FA0591F14E1E400266949 /* UIImageControl.m in Sources */,
