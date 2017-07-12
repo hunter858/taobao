@@ -6,7 +6,7 @@
 2. `pod update` 引入第三方依赖包
 3.  双击打开 `.xcworkspace`的文件  运行即可
 
-
+![](http://ooynqqqkg.bkt.clouddn.com/taobao.gif)
 
 
 
