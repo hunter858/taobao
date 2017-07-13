@@ -146,7 +146,6 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         

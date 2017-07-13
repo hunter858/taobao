@@ -22,6 +22,8 @@
 		E60FA0551F14C9E200266949 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0531F14C9E200266949 /* HomeViewController.m */; };
 		E60FA0561F14C9E200266949 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E60FA0541F14C9E200266949 /* HomeViewController.xib */; };
 		E60FA0591F14E1E400266949 /* UIImageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FA0581F14E1E400266949 /* UIImageControl.m */; };
+		E618C0A91F17430A00DE2EE2 /* productCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E618C0A71F17430A00DE2EE2 /* productCell.m */; };
+		E618C0AA1F17430A00DE2EE2 /* productCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E618C0A81F17430A00DE2EE2 /* productCell.xib */; };
 		E67787F11F11F4E500016913 /* JBCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F01F11F4E500016913 /* JBCountdownView.m */; };
 		E67787F71F12243100016913 /* noticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67787F61F12243100016913 /* noticeView.m */; };
 		E67787F91F12243C00016913 /* noticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67787F81F12243C00016913 /* noticeView.xib */; };
@@ -102,6 +104,9 @@
 		E60FA0541F14C9E200266949 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E60FA0571F14E1E400266949 /* UIImageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageControl.h; sourceTree = "<group>"; };
 		E60FA0581F14E1E400266949 /* UIImageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageControl.m; sourceTree = "<group>"; };
+		E618C0A61F17430A00DE2EE2 /* productCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productCell.h; sourceTree = "<group>"; };
+		E618C0A71F17430A00DE2EE2 /* productCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productCell.m; sourceTree = "<group>"; };
+		E618C0A81F17430A00DE2EE2 /* productCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productCell.xib; sourceTree = "<group>"; };
 		E67787EF1F11F4E500016913 /* JBCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBCountdownView.h; sourceTree = "<group>"; };
 		E67787F01F11F4E500016913 /* JBCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBCountdownView.m; sourceTree = "<group>"; };
 		E67787F51F12243100016913 /* noticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noticeView.h; sourceTree = "<group>"; };
@@ -376,6 +381,9 @@
 				E60FA0331F13CD6A00266949 /* productView.h */,
 				E60FA0341F13CD6A00266949 /* productView.m */,
 				E60FA0361F13CD7400266949 /* productView.xib */,
+				E618C0A61F17430A00DE2EE2 /* productCell.h */,
+				E618C0A71F17430A00DE2EE2 /* productCell.m */,
+				E618C0A81F17430A00DE2EE2 /* productCell.xib */,
 				E60FA0401F14780800266949 /* preferenceView.h */,
 				E60FA0411F14780800266949 /* preferenceView.m */,
 				E60FA0571F14E1E400266949 /* UIImageControl.h */,
@@ -512,6 +520,7 @@
 				E60FA0321F13C49500266949 /* taobaoProduct.json in Resources */,
 				E60FA0301F13B4CA00266949 /* oneImageView.xib in Resources */,
 				E678099F1F0A6B4100217CF1 /* bannerCell.xib in Resources */,
+				E618C0AA1F17430A00DE2EE2 /* productCell.xib in Resources */,
 				E67788031F126A4200016913 /* Assets.xcassets in Resources */,
 				E67809BA1F0B6BBA00217CF1 /* smallIconView.xib in Resources */,
 				E67809E01F0D083600217CF1 /* worthBuyingCell.xib in Resources */,
@@ -601,6 +610,7 @@
 				E60FA0491F14BC4100266949 /* AppRouterTool.m in Sources */,
 				E67809651F0A632200217CF1 /* AppDelegate.m in Sources */,
 				E67809A31F0A6B5400217CF1 /* limitSaleCell.m in Sources */,
+				E618C0A91F17430A00DE2EE2 /* productCell.m in Sources */,
 				E60FA0461F14993000266949 /* urlTool.m in Sources */,
 				E67809D01F0B829F00217CF1 /* twoImageCell.m in Sources */,
 				E60FA04D1F14C87B00266949 /* webViewController.m in Sources */,

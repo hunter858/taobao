@@ -147,9 +147,6 @@
         case twoTitleStyle:
             [self case6];
             break;
-        case product:
-            [self case7];
-            break;
 
         default:
             break;
@@ -420,81 +417,6 @@
                  }
                  
              }];
-        }
-        
-        
-    }
-    
-    
-}
-
--(void)case7{
-    __weak typeof(self) weakself=self;
-    while (self.contentView.subviews.count>0) {
-        
-        [[self.contentView.subviews lastObject] removeFromSuperview];
-    }
-    //移除之前的 UIImageView
-    productView *productView1 = [[productView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-    productView *productView2 = [[productView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
-    [self.contentView addSubview:productView1];
-    [self.contentView addSubview:productView2];
-    [self.viewArray removeAllObjects];
-    self.viewArray = @[productView1,productView2].mutableCopy;
-    
-    [productView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(productView1.superview.mas_left).offset(0);
-        make.top.equalTo(productView1.superview.mas_top).offset(0);
-        make.bottom.equalTo(productView1.superview.mas_bottom).offset(-5);
-    }];
-    
-    
-    [productView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(productView1.mas_right).offset(5);
-        make.top.equalTo(productView2.superview.mas_top).offset(0);
-        make.bottom.equalTo(productView2.superview.mas_bottom).offset(-5);
-        make.right.equalTo(productView2.superview.mas_right).offset(0);
-        make.width.equalTo(productView1.mas_width);
-    }];
-    
-    [self layoutIfNeeded];
-    
-    
-    for (int i=0; i<self.viewArray.count; i++) {
-        
-        productView *oneView = self.viewArray[i];
-        if (i<self.dataArray.count) {
-            itemsModel *model = self.dataArray[i];
-            [oneView setData:model];
-            
-            [[oneView rac_signalForControlEvents:UIControlEventTouchUpInside]
-             subscribeNext:^(id x) {
-                 if (weakself.clickIndex!=NULL) {
-                     weakself.clickIndex(model.targetUrl);
-                 }
-                 
-            }];
-            
-            
-            //喜欢方法
-            [[oneView.preference_View.likeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-             subscribeNext:^(id x) {
-                 if (weakself.clickLikeButton!=NULL) {
-                     weakself.clickLikeButton(self.index);
-                 }
-                 
-             }];
-            
-            
-            //不喜欢方法
-            [[oneView.preference_View.dontlikeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-             subscribeNext:^(id x) {
-                 if (weakself.clickdontLikeButton!=NULL) {
-                     weakself.clickdontLikeButton(self.index);
-                 }
-                 
-             }];
-            
         }
         
         

@@ -446,17 +446,17 @@
         }
         
         
-        [self addProductCell:array type:product];
+        [self addProductCell:array];
     }
     
     
     
 }
 
--(void)addProductCell:(NSArray*)data type:(cellProductStyel)type{
+-(void)addProductCell:(NSArray*)data{
     TableViewSectionModel *sectionModel=[self getSectionModel];
     CellModel *banner =[[CellModel alloc]init];
-    worthBuyingCell *cell =[[worthBuyingCell alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
+    productCell *cell =[[productCell alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
     
     banner.CellHeight = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
         return 230;
@@ -474,20 +474,14 @@
     }
     
     
-    [cell setProductData:data];
-    [cell settype:type];
+
+    [cell setData:data];
+
     cell.clickIndex = ^(NSString *URL){
         [AppRouterTool pushWithUrl:URL];
     };
     
     
-//    banner.SelectRow=^(UITableView *tableView,NSIndexPath* indexPath){
-//
-//        
-//        NSLog(@"dianji lcell ");
-//    };
-
-//    sectionModel.cellModelsArr.count
     
     // 这里需要注意的是，因为这里只用了一个section 所以，section为0 ，如果为多个section
     // 请去判断为第几个section
@@ -499,10 +493,8 @@
     __weak typeof(self) weakself=self;
     
     //好笨的方法，给cell 负一个 NSIndexPath 的属性值 ，在回传出来，
-    cell.index = index222;
+    [cell setIndex:index222];;
     cell.clickLikeButton = ^(NSIndexPath *index) {
-   
-    
         
         if (weakself.reloadTableview!=NULL) {
             weakself.reloadTableview(index);
@@ -510,10 +502,12 @@
         
     };
     //点击了产品的不喜欢按钮
-//    cell.clickdontLikeButton = ^(NSString *URL){
-//
-//         NSLog(@"点击了产品的bu喜欢按钮");
-//    };
+    cell.clickdontLikeButton = ^(NSIndexPath *index) {
+
+        if (weakself.reloadTableview!=NULL) {
+            weakself.reloadTableview(index);
+        }
+    };
     
     
     

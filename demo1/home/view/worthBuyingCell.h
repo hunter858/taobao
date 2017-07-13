@@ -20,8 +20,8 @@ typedef enum {
  threeStyle = 2,    //二等分的view 各个view nei评分
  productStyle= 4,   //二等分的产品 样式 分类
  fourTitleStyle= 5, //标题用原生的
- twoTitleStyle = 6,  //2等分，标题用原生的
- product = 7
+ twoTitleStyle = 6  //2等分，标题用原生的
+ 
 }cellProductStyel;
 
 
@@ -34,7 +34,7 @@ typedef enum {
 -(void)settype:(cellProductStyel)type;
 
 
-@property (nonatomic,assign) NSIndexPath *index;
+//@property (nonatomic,assign) NSIndexPath *index;
 @property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 //用户接受点击URL的block 回调
 

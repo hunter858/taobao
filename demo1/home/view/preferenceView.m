@@ -80,8 +80,8 @@
     
     //添加点击事件
     
-//    [likeButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
-//    [dontlikeButton addTarget:self action:@selector(dontlikeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [likeButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [dontlikeButton addTarget:self action:@selector(dontlikeAction:) forControlEvents:UIControlEventTouchUpInside];
     
     //背景添加tap事件
     UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(removePreferenceView)];
@@ -152,20 +152,20 @@
     
 }
 
-//-(void)likeAction:(UIButton *)button{
-//    
-//    if (self.clicklikeButton) {
-//        self.clicklikeButton();
-//    }
-//    
-//}
+-(void)likeAction:(UIButton *)button{
+    
+    if (self.clicklikeButton) {
+        self.clicklikeButton();
+    }
+    
+}
 
-//-(void)dontlikeAction:(UIButton *)button{
-//  
-//    if (self.clickdontLikeButton) {
-//        self.clickdontLikeButton();
-//    }
-//}
+-(void)dontlikeAction:(UIButton *)button{
+  
+    if (self.clickdontLikeButton) {
+        self.clickdontLikeButton();
+    }
+}
 
 
 @end
