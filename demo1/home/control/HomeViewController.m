@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initviews];
     __weak typeof(self) weakself=self;
     _viewModel  =[[homeViewModel alloc]init];
     [_viewModel.tableViewDataModel targetTableView:self.mytableview];
@@ -26,18 +27,11 @@
     
     _viewModel.reloadTableview = ^(NSIndexPath *index) {
         
-        NSLog(@"index: %@",index);
+        [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationMiddle];
     };
-    
-//    _viewModel
-//    self.mytableview reloadRowsAtIndexPaths:; withRowAnimation:<#(UITableViewRowAnimation)#>
-    
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)initviews{
     __weak typeof(self) weakself=self;
     [self.mytableview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,7 +42,7 @@
     }];
     [self.mytableview layoutIfNeeded];
     self.mytableview.separatorColor = COLOR(234, 234, 234, 0.5);
-
+    
     if ([self.mytableview respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.mytableview setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     }
@@ -62,6 +56,12 @@
     self.mytableview.separatorColor =COLOR(232, 232, 232, 1);
     
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 /*
 #pragma mark - Navigation
 

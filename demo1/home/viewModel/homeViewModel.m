@@ -30,9 +30,9 @@
 -(void)setData:(void (^)())callback{
     [self loadData];
     
-    [self setScrollviewCell];
-    [self setBigMenuCell];
-    [self setAdvertisementCell];
+    [self setScrollviewCell];  //滚动轮播器
+    [self setBigMenuCell];     //大菜单
+//    [self setAdvertisementCell];
     [self setSpacewithHeight:8];
     
     [self setseaSaleCell];
@@ -113,26 +113,33 @@
     TableViewSectionModel *sectionModel=[self getSectionModel];
     CellModel *banner =[[CellModel alloc]init];
     bannerCell *cell =[[bannerCell alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];
+    //1.创建一个cell 通过 initWithFrame 的方法；
     
     banner.CellHeight = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
         return 120;
     };
+    //2.实现CellModel 的 CellHeight block 属性， 返回 cell 高度;
     
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         return cell;
     };
+    //3.实现CellModel的block  返回UITableViewCell
     
     [cell setData:[self getDataArray:@"tbanner"] Blcok:^{
         
     }];
+    //4.给cell赋值，放入数据模型；
     
     cell.clickIndex = ^(NSString *URL){
-      
-        [AppRouterTool pushWithUrl:URL];
-        
+        [AppRouterTool pushWithUrl:URL];   //这是一个跳转方法
     };
-
+    //5.实现cell 的点击事件;
+    
+    
     [sectionModel.cellModelsArr addObject:banner];
+    //6.将cellModel，放到 第一个TableViewSectionModel 对象中
+    
+    
 }
 
 -(void)setBigMenuCell{
