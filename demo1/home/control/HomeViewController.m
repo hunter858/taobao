@@ -23,6 +23,15 @@
     [_viewModel setData:^{
         [weakself.mytableview reloadData];
     }];
+    
+    _viewModel.reloadTableview = ^(NSIndexPath *index) {
+        
+        NSLog(@"index: %@",index);
+    };
+    
+//    _viewModel
+//    self.mytableview reloadRowsAtIndexPaths:; withRowAnimation:<#(UITableViewRowAnimation)#>
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +48,7 @@
     }];
     [self.mytableview layoutIfNeeded];
     self.mytableview.separatorColor = COLOR(234, 234, 234, 0.5);
-    
+
     if ([self.mytableview respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.mytableview setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     }

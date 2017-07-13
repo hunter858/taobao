@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *productContentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
-
+@property (atomic,assign)  preferenceView *preference_View;
 -(void)setData:(id)data;
 
 @end

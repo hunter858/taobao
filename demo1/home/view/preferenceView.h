@@ -15,8 +15,8 @@
 @property (nonatomic,strong)UIButton *dontlikeButton;
 @property (nonatomic,strong)UIView *bgview;
 
-@property (nonatomic,copy)void (^clicklikeButton)();
-@property (nonatomic,copy)void (^clickdontLikeButton)();
+//@property (nonatomic,copy)void (^clicklikeButton)();
+//@property (nonatomic,copy)void (^clickdontLikeButton)();
 
 + (preferenceView *)sharedManager;
 @end

@@ -33,7 +33,15 @@ typedef enum {
 
 -(void)settype:(cellProductStyel)type;
 
+
+@property (nonatomic,assign) NSIndexPath *index;
 @property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 //用户接受点击URL的block 回调
 
+
+
+//产品的找相似 和 不喜欢 按钮的block 回调^(NSIndexPath *index){
+
+@property (nonatomic,copy) void (^clickLikeButton)(NSIndexPath *index);
+@property (nonatomic,copy) void (^clickdontLikeButton)(NSIndexPath *index);
 @end

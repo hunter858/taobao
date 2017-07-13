@@ -26,7 +26,7 @@
     return self;
 }
 
-
+// 第一大 方法 very important
 -(void)setData:(void (^)())callback{
     [self loadData];
     
@@ -37,7 +37,6 @@
     
     [self setseaSaleCell];
     [self setSpacewithHeight:8];
-    
     
     [self worthByArrayCell];   //超实惠
     [self setSpacewithHeight:8];
@@ -60,6 +59,17 @@
         callback();
     }
 }
+
+-(void)reloadTableview:(void(^)())callback{
+    
+    
+    
+    if(callback){
+        callback();
+    }
+        
+}
+
 
 
 -(void)loadData{
@@ -467,10 +477,46 @@
     [cell setProductData:data];
     [cell settype:type];
     cell.clickIndex = ^(NSString *URL){
-        
         [AppRouterTool pushWithUrl:URL];
+    };
+    
+    
+//    banner.SelectRow=^(UITableView *tableView,NSIndexPath* indexPath){
+//
+//        
+//        NSLog(@"dianji lcell ");
+//    };
+
+//    sectionModel.cellModelsArr.count
+    
+    // 这里需要注意的是，因为这里只用了一个section 所以，section为0 ，如果为多个section
+    // 请去判断为第几个section
+    
+    NSIndexPath *index222 = [NSIndexPath indexPathForRow:sectionModel.cellModelsArr.count inSection:0];
+    
+    //点击了产品的喜欢按钮
+    //在这里 取拿一个新的产品，然后刷新tableview 就可以了
+    __weak typeof(self) weakself=self;
+    
+    //好笨的方法，给cell 负一个 NSIndexPath 的属性值 ，在回传出来，
+    cell.index = index222;
+    cell.clickLikeButton = ^(NSIndexPath *index) {
+   
+    
+        
+        if (weakself.reloadTableview!=NULL) {
+            weakself.reloadTableview(index);
+        }
         
     };
+    //点击了产品的不喜欢按钮
+//    cell.clickdontLikeButton = ^(NSString *URL){
+//
+//         NSLog(@"点击了产品的bu喜欢按钮");
+//    };
+    
+    
+    
     [sectionModel.cellModelsArr addObject:banner];
 }
 

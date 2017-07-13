@@ -67,6 +67,8 @@
         [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:leftUrl]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         
+
+        
     }
     
 }
@@ -76,116 +78,39 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 0.5;
     
-    
     [self addGestureRecognizer:longPressGr];
     
-    }
+    _preference_View = [preferenceView sharedManager];
+}
 
 -(void)addBgview{
     
-//    UIView *bgview =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-//    [bgview setBackgroundColor:[UIColor blackColor]];
-//    bgview.alpha = 0.8;
-//    
-//    UIButton *likeButton =[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-//    UIButton *dontlikeButton =[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-//    likeButton.font =[UIFont systemFontOfSize:14];
-//    dontlikeButton.font =[UIFont systemFontOfSize:14];
-//
-//    [likeButton setTitle:@"找相似" forState:UIControlStateNormal];
-//    [dontlikeButton setTitle:@"不喜欢" forState:UIControlStateNormal];
-//    
-//    [likeButton setBackgroundColor:[UIColor redColor]];
-//    [dontlikeButton setBackgroundColor:[UIColor blueColor]];
-//    
-//    [bgview addSubview:likeButton];
-//    [bgview addSubview:dontlikeButton];
-//    
-//    [self addSubview:bgview];
-//    
-//    [bgview mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(@0.1);
-//        make.centerX.equalTo(bgview.superview.mas_centerX).offset(0);
-//        make.centerY.equalTo(bgview.superview.mas_centerY).offset(0);
-//        make.height.equalTo(@0.1);
-//    }];
-//    
-//    [likeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(likeButton.superview.mas_centerX).offset(0);
-//        make.width.equalTo(likeButton.superview.mas_width).multipliedBy(0.3);
-//        make.height.equalTo(likeButton.superview.mas_width).multipliedBy(0.3);
-//        make.centerY.equalTo(likeButton.superview.mas_centerY).offset(50);
-//        
-//    }];
-//    
-//    [dontlikeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(dontlikeButton.superview.mas_centerX).offset(0);
-//        make.width.equalTo(dontlikeButton.superview.mas_width).multipliedBy(0.3);
-//        make.height.equalTo(dontlikeButton.superview.mas_width).multipliedBy(0.3);
-//        make.centerY.equalTo(dontlikeButton.superview.mas_centerY).offset(-50);
-//    }];
-//    
-//    
-//    [UIView animateWithDuration:0.3 animations:^{
-//        
-//        [bgview mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.equalTo(bgview.superview.mas_centerX).offset(0);
-//            make.centerY.equalTo(bgview.superview.mas_centerY).offset(0);
-//        }];
-//        bgview.alpha = 0.8;
-//        [self layoutIfNeeded];
-//        
-//    } completion:^(BOOL finished) {
-//        
-//        
-//    
-//        [UIView animateWithDuration:0.4 animations:^{
-//            [bgview mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.top.equalTo(bgview.superview.mas_top);
-//                make.bottom.equalTo(bgview.superview.mas_bottom);
-//                make.left.equalTo(bgview.superview.mas_left);
-//                make.right.equalTo(bgview.superview.mas_right);
-//            }];
-//            bgview.alpha = 0.7;
-//        }];
-//                
-//        [self layoutIfNeeded];
-//        
-//        likeButton.layer.masksToBounds = YES;
-//        likeButton.layer.cornerRadius = likeButton.bounds.size.height/2;
-//        dontlikeButton.layer.masksToBounds = YES;
-//        dontlikeButton.layer.cornerRadius = dontlikeButton.bounds.size.height/2;
-//        
-//    }];
-//    
-//    
-//    [UIView animateWithDuration:0.3 animations:^{
-//        
-//
-//    }];
+    if (_preference_View==nil) {
+        _preference_View = [preferenceView sharedManager];
+    }
+
+    [self addSubview:_preference_View];
+
+//    self.preference_View = preference_View;
     
-    preferenceView *preference_View = [preferenceView sharedManager];
-    
-    [self addSubview:preference_View];
-    
-    [preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(preference_View.superview.mas_top).offset(0);
-        make.bottom.equalTo(preference_View.superview.mas_bottom).offset(0);
-        make.left.equalTo(preference_View.superview.mas_left).offset(0);
-        make.right.equalTo(preference_View.superview.mas_right).offset(0);
+    [_preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_preference_View.superview.mas_top).offset(0);
+        make.bottom.equalTo(_preference_View.superview.mas_bottom).offset(0);
+        make.left.equalTo(_preference_View.superview.mas_left).offset(0);
+        make.right.equalTo(_preference_View.superview.mas_right).offset(0);
     }];
     
     
-    preference_View.clickdontLikeButton = ^{
-        
-        NSLog(@"点击了不喜欢按钮");
-    };
-    
-    preference_View.clicklikeButton  = ^{
-        
-        NSLog(@"喜欢按钮");
-    };
-
+//    preference_View.clickdontLikeButton = ^{
+//        
+//        
+//    };
+//    
+//    preference_View.clicklikeButton  = ^{
+//        
+//        
+//    };
+    [self layoutIfNeeded];
     
 }
 

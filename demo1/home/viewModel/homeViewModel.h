@@ -30,4 +30,8 @@ typedef enum {
 
 -(void)setData:(void (^)())callback;
 
+@property (nonatomic,copy) void (^reloadTableview)(NSIndexPath *index);
+
+//-(void)reloadTableview:(void(^)(NSIndexPath *index))callback;
+
 @end

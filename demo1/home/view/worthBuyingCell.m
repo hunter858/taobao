@@ -462,7 +462,7 @@
     
     for (int i=0; i<self.viewArray.count; i++) {
         
-        twoimageview *oneView = self.viewArray[i];
+        productView *oneView = self.viewArray[i];
         if (i<self.dataArray.count) {
             itemsModel *model = self.dataArray[i];
             [oneView setData:model];
@@ -473,7 +473,28 @@
                      weakself.clickIndex(model.targetUrl);
                  }
                  
+            }];
+            
+            
+            //喜欢方法
+            [[oneView.preference_View.likeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickLikeButton!=NULL) {
+                     weakself.clickLikeButton(self.index);
+                 }
+                 
              }];
+            
+            
+            //不喜欢方法
+            [[oneView.preference_View.dontlikeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+             subscribeNext:^(id x) {
+                 if (weakself.clickdontLikeButton!=NULL) {
+                     weakself.clickdontLikeButton(self.index);
+                 }
+                 
+             }];
+            
         }
         
         
