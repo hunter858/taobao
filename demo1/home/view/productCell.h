@@ -13,7 +13,7 @@
 
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (nonatomic,strong)NSMutableArray *viewArray;
-@property (nonatomic,copy  )NSIndexPath *index;
+@property (nonatomic,strong)NSIndexPath *index;
 
 -(void)setData:(NSArray *)array;
 

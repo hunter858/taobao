@@ -90,8 +90,6 @@
     }
 
     [self addSubview:_preference_View];
-
-//    self.preference_View = preference_View;
     
     [_preference_View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_preference_View.superview.mas_top).offset(0);
@@ -100,17 +98,12 @@
         make.right.equalTo(_preference_View.superview.mas_right).offset(0);
     }];
     
-    
-//    preference_View.clickdontLikeButton = ^{
-//        
-//        
-//    };
-//    
-//    preference_View.clicklikeButton  = ^{
-//        
-//        
-//    };
     [self layoutIfNeeded];
+    
+    if (self.longTapBlock!=NULL) {
+        self.longTapBlock();
+    }
+    
     
 }
 

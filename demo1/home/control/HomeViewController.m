@@ -27,7 +27,7 @@
     
     _viewModel.reloadTableview = ^(NSIndexPath *index) {
         
-        [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationMiddle];
+//        [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationMiddle];
     };
 
 }

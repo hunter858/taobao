@@ -469,6 +469,7 @@
         return 230;
     };
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
+        cell.index = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
         return cell;
     };
     
@@ -493,14 +494,14 @@
     // 这里需要注意的是，因为这里只用了一个section 所以，section为0 ，如果为多个section
     // 请去判断为第几个section
     
-    NSIndexPath *index222 = [NSIndexPath indexPathForRow:sectionModel.cellModelsArr.count inSection:0];
+//    NSIndexPath *index222 = [NSIndexPath indexPathForRow:sectionModel.cellModelsArr.count inSection:0];
     
     //点击了产品的喜欢按钮
     //在这里 取拿一个新的产品，然后刷新tableview 就可以了
     __weak typeof(self) weakself=self;
     
     //好笨的方法，给cell 负一个 NSIndexPath 的属性值 ，在回传出来，
-    [cell setIndex:index222];;
+//    [cell setIndex:index222];;
     cell.clickLikeButton = ^(NSIndexPath *index) {
         
         if (weakself.reloadTableview!=NULL) {

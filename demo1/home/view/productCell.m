@@ -66,19 +66,18 @@
     [self layoutIfNeeded];
     
 
-    self.index = nil;
  
     
 }
 
--(void)setIndex:(NSIndexPath *)index {
-    
-    if (_index==nil) {
-        _index = [[NSIndexPath alloc]init];
-    }
-    _index = index.copy;
-    
-}
+//-(void)setIndex:(NSIndexPath *)index {
+//    
+//    if (_index==nil) {
+//        _index = [[NSIndexPath alloc]init];
+//    }
+//    _index = index.copy;
+//    
+//}
 
 -(void)setData:(NSArray *)array{
     
@@ -108,21 +107,25 @@
                  
              }];
             
-            oneView.preference_View.clicklikeButton =^(NSString *URL){
-                
-                if (weakself.clickLikeButton!=NULL) {
-                    weakself.clickLikeButton(weakself.index);
-                }
-                
-            };
+            __weak typeof(oneView) weakoneView=oneView;
             
-            oneView.preference_View.clickdontLikeButton =^(NSString *URL){
+            oneView.longTapBlock = ^(){
+                weakoneView.preference_View.clicklikeButton =^(NSString *URL){
+                    
+                    if (weakself.clickLikeButton!=NULL) {
+                        weakself.clickLikeButton(weakself.index);
+                    }
+                    
+                };
                 
-                if (weakself.clickdontLikeButton!=NULL) {
-                    weakself.clickdontLikeButton(weakself.index);
-                }
-                
-            };
+                weakoneView.preference_View.clickdontLikeButton =^(NSString *URL){
+                    
+                    if (weakself.clickdontLikeButton!=NULL) {
+                        weakself.clickdontLikeButton(weakself.index);
+                    }
+                    
+                };
+           };
             
             
         }
