@@ -8,6 +8,10 @@
 
 #import "productCell.h"
 
+@interface productCell ()
+@property (nonatomic,strong) NSMutableArray *tempDataArray;
+@end
+
 @implementation productCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -125,24 +129,33 @@
 -(void)setData:(NSArray *)array{
     
     __weak typeof(self) weakself=self;
-    for (int i= 0; i<array.count; i++) {
+    if (self.tempDataArray.count>0) {
         
-        id data = array[i];
-        if ([data isKindOfClass:[sectionModel class]]) {
-            sectionModel *Model = (sectionModel *)data;
-            [self.dataArray addObject:[Model.items firstObject]];
+       //self.data 已经更换成新数据了；
+//        NSLog(@"已经切换了新数据");
+        NSLog(@"xxx");
+        self.dataArray = self.tempDataArray.mutableCopy;
+        
+        
+    }else{
+        for (int i= 0; i<array.count; i++) {
+            
+            id data = array[i];
+            if ([data isKindOfClass:[sectionModel class]]) {
+                sectionModel *Model = (sectionModel *)data;
+                [self.dataArray addObject:[Model.items firstObject]];
+            }
         }
     }
     
     
-    for (int i=0; i<self.viewArray.count; i++) {
-        
-        productView *oneView = self.viewArray[i];
-        if (i<self.dataArray.count) {
-            itemsModel *model = self.dataArray[i];
-            [oneView setData:model];
+    //这段代码比较low ，但是我还没找到好的解决方法
+    {
+            productView *leftProductView = [self.viewArray firstObject];
+            itemsModel *model = [self.dataArray firstObject];
+            [leftProductView setData:model];
             
-            [[oneView rac_signalForControlEvents:UIControlEventTouchUpInside]
+            [[leftProductView rac_signalForControlEvents:UIControlEventTouchUpInside]
              subscribeNext:^(id x) {
                  if (weakself.clickIndex!=NULL) {
                      weakself.clickIndex(model.targetUrl);
@@ -150,41 +163,92 @@
                  
              }];
             
-            __weak typeof(oneView) weakoneView=oneView;
+            __weak typeof(leftProductView) weakleftView=leftProductView;
             
-            oneView.longTapBlock = ^(){
-                weakoneView.preference_View.clicklikeButton =^(NSString *URL){
+            leftProductView.longTapBlock = ^(){
+                weakleftView.preference_View.clicklikeButton =^(NSString *URL){
                     
-                    if (weakself.clickLikeButton!=NULL) {
-                        weakself.clickLikeButton(weakself.index);
+                    if (weakself.clickLeftLikeButton!=NULL) {
+                        weakself.clickLeftLikeButton(weakself.index);
                     }
                     
                 };
                 
-                weakoneView.preference_View.clickdontLikeButton =^(NSString *URL){
+                weakleftView.preference_View.clickdontLikeButton =^(NSString *URL){
                     
-                    if (weakself.clickdontLikeButton!=NULL) {
-                        weakself.clickdontLikeButton(weakself.index);
+                    if (weakself.clickLeftDontLikeButton!=NULL) {
+                        weakself.clickLeftDontLikeButton(weakself.index);
                     }
                     
                 };
            };
             
-            
-        }
+    }
+    
+    {
+        productView *rightProductView = [self.viewArray lastObject];
+        itemsModel *model = [self.dataArray lastObject];
+        [rightProductView setData:model];
         
+        [[rightProductView rac_signalForControlEvents:UIControlEventTouchUpInside]
+         subscribeNext:^(id x) {
+             if (weakself.clickIndex!=NULL) {
+                 weakself.clickIndex(model.targetUrl);
+             }
+             
+         }];
+        
+        __weak typeof(rightProductView) weakRightView=rightProductView;
+        
+        rightProductView.longTapBlock = ^(){
+            weakRightView.preference_View.clicklikeButton =^(NSString *URL){
+                
+                if (weakself.clickRightLikeButton!=NULL) {
+                    weakself.clickRightLikeButton(weakself.index);
+                }
+                
+            };
+            
+            weakRightView.preference_View.clickdontLikeButton =^(NSString *URL){
+                
+                if (weakself.clickRightDontLikeButton!=NULL) {
+                    weakself.clickRightDontLikeButton(weakself.index);
+                }
+                
+            };
+        };
         
     }
+    
+    
     
     
 }
 
 -(void)setleftData:(id)data{
     
-    
+    if ([data isKindOfClass:[sectionModel class]]) {
+        sectionModel  *section =(sectionModel *)data;
+        itemsModel *model = [section.items firstObject];
+        id firstObject = [self.dataArray firstObject];
+        [self.dataArray removeObject:firstObject];
+        [self.dataArray insertObject:model atIndex:0];
+        
+        self.tempDataArray = self.dataArray.mutableCopy;
+    }
     
 }
 -(void)setRightData:(id)data{
+ 
+    if ([data isKindOfClass:[sectionModel class]]) {
+        sectionModel  *section =(sectionModel *)data;
+        itemsModel *model = [section.items lastObject];
+        
+        id lastObject = [self.dataArray lastObject];
+        [self.dataArray removeObject:lastObject];
+        [self.dataArray addObject:model];
+        self.tempDataArray = self.dataArray.mutableCopy;
+    }
     
 }
 

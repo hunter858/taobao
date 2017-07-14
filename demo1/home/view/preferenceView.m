@@ -31,8 +31,8 @@
 -(void)initViews{
     
     UIView *bgview =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-    [bgview setBackgroundColor:[UIColor blackColor]];
-    bgview.alpha = 0.8;
+    [bgview setBackgroundColor:RGBA(0, 0, 0, 0.7)];
+    
     
     UIButton *likeButton =[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
     UIButton *dontlikeButton =[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
@@ -43,8 +43,9 @@
     [dontlikeButton setTitle:@"不喜欢" forState:UIControlStateNormal];
     
     
-    [likeButton setBackgroundColor:[UIColor redColor]];
-    [dontlikeButton setBackgroundColor:[UIColor blueColor]];
+    [likeButton setBackgroundColor:RGBA(34, 138, 240, 1)];
+    [dontlikeButton setBackgroundColor:RGBA(251
+                                            , 61, 26, 1)];
     
     [bgview addSubview:likeButton];
     [bgview addSubview:dontlikeButton];
@@ -123,7 +124,7 @@
             make.centerX.equalTo(weakself.superview.mas_centerX).offset(0);
             make.centerY.equalTo(weakself.superview.mas_centerY).offset(0);
         }];
-        weakself.bgview.alpha = 0.8;
+       
         [self layoutIfNeeded];
         
     } completion:^(BOOL finished) {
@@ -137,7 +138,6 @@
                 make.left.equalTo(weakself.bgview.superview.mas_left);
                 make.right.equalTo(weakself.bgview.superview.mas_right);
             }];
-            weakself.bgview.alpha = 0.7;
         }];
         
         [self layoutIfNeeded];

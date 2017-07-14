@@ -479,7 +479,6 @@
         
         if (cell==nil) {
             cell = [[productCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            NSLog(@"indexPath-%@",indexPath);
         }
         
         [cell setData:data];
@@ -490,24 +489,49 @@
         
         cell.index = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
         
-        //点击了产品的喜欢按钮
+        
+        __weak typeof(cell) weakCell = cell;
+        
+        //点击了产品的喜欢按钮 (左侧)
         //在这里 取拿一个新的产品，然后刷新tableview 就可以了
-        cell.clickLikeButton = ^(NSIndexPath *index) {
+        cell.clickLeftLikeButton = ^(NSIndexPath *index) {
+            
+            [weakCell setleftData:weakself.getRandomData]; //搞一个假数据 刷新tableview
             
             if (weakself.reloadTableview!=NULL) {
                 weakself.reloadTableview(index);
             }
             
         };
-        //点击了产品的不喜欢按钮
-        cell.clickdontLikeButton = ^(NSIndexPath *index) {
-            
+        //点击了产品的不喜欢按钮 (左侧)
+        cell.clickLeftDontLikeButton  = ^(NSIndexPath *index) {
+            [weakCell setleftData:weakself.getRandomData];
             if (weakself.reloadTableview!=NULL) {
                 weakself.reloadTableview(index);
             }
         };
         
-
+        //点击了产品的喜欢按钮 (右侧)
+        cell.clickRightLikeButton = ^(NSIndexPath *index) {
+            
+            [weakCell setRightData:weakself.getRandomData]; //搞一个假数据 刷新tableview
+            
+            if (weakself.reloadTableview!=NULL) {
+                weakself.reloadTableview(index);
+            }
+            
+        };
+        
+        //点击了产品的不喜欢按钮 (右侧)
+        cell.clickRightDontLikeButton  = ^(NSIndexPath *index) {
+            [weakCell setRightData:weakself.getRandomData];
+            if (weakself.reloadTableview!=NULL) {
+                weakself.reloadTableview(index);
+            }
+        };
+        
+        
+        
         return cell;
     };
     
@@ -520,7 +544,7 @@
 -(sectionModel *)getRandomData{
     
     NSInteger count = self.productModel.section.count; //所有产品数据的数量
-    NSInteger value =arc4random_uniform(count + 1);   //在所有产品中随机一个产品
+    NSInteger value = arc4random_uniform(count + 1);   //在所有产品中随机一个产品
     sectionModel *model = nil;
     if (value<count) {
         //不越界

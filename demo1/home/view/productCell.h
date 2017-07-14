@@ -24,10 +24,14 @@
 @property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 //用户接受点击URL的block 回调
 
-@property (nonatomic,copy) void (^clickLikeButton)(NSIndexPath *index);
-@property (nonatomic,copy) void (^clickdontLikeButton)(NSIndexPath *index);
+//点击左侧 喜欢不喜欢按钮block
+@property (nonatomic,copy) void (^clickLeftLikeButton)(NSIndexPath *index);
+@property (nonatomic,copy) void (^clickLeftDontLikeButton)(NSIndexPath *index);
 //产品的找相似 和 不喜欢 按钮的block 回调^(NSIndexPath *index){
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+//点击右侧 喜欢不喜欢按钮block
+@property (nonatomic,copy) void (^clickRightLikeButton)(NSIndexPath *index);
+@property (nonatomic,copy) void (^clickRightDontLikeButton)(NSIndexPath *index);
+
 
 @end
