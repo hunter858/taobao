@@ -10,6 +10,47 @@
 
 @implementation productCell
 
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if(self){
+        
+        // 初始化时加载collectionCell.xib文件
+        NSArray *arrayOfViews = [[NSBundle mainBundle] loadNibNamed:@"productCell" owner:self options:nil];
+        
+        // 如果路径不存在，return nil
+        if (arrayOfViews.count < 1)
+        {
+            return nil;
+        }
+        // 如果xib中view不属于UICollectionViewCell类，return nil
+        if (![[arrayOfViews objectAtIndex:0] isKindOfClass:[productCell class]])
+        {
+            return nil;
+        }
+        // 加载nib
+        self = [arrayOfViews objectAtIndex:0];
+        
+        if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+            [self setSeparatorInset:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
+        }
+        
+        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+            [self setLayoutMargins:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
+        }
+        
+        
+        [self initViews];
+        [self layoutIfNeeded];
+        [self setNeedsUpdateConstraints];
+        [self updateConstraintsIfNeeded];
+        
+    }
+    return self;
+}
+
+
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -29,6 +70,16 @@
         // 加载nib
         self = [arrayOfViews objectAtIndex:0];
         self.frame=frame;
+        
+        if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+            [self setSeparatorInset:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
+        }
+        
+        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+            [self setLayoutMargins:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
+        }
+        
+        
         [self initViews];
         [self layoutIfNeeded];
         [self setNeedsUpdateConstraints];
@@ -70,14 +121,6 @@
     
 }
 
-//-(void)setIndex:(NSIndexPath *)index {
-//    
-//    if (_index==nil) {
-//        _index = [[NSIndexPath alloc]init];
-//    }
-//    _index = index.copy;
-//    
-//}
 
 -(void)setData:(NSArray *)array{
     
@@ -135,6 +178,18 @@
     
     
 }
+
+-(void)setleftData:(id)data{
+    
+    
+    
+}
+-(void)setRightData:(id)data{
+    
+}
+
+
+
 
 -(NSMutableArray *)dataArray{
     if (_dataArray==nil) {

@@ -18,11 +18,6 @@
 #import "AppRouterTool.h"
 #import "productCell.h"
 
-typedef enum {
-    template,   //轮播模版
-    
-    
-}celltype;
 
 @interface homeViewModel : NSObject
 
@@ -32,6 +27,5 @@ typedef enum {
 
 @property (nonatomic,copy) void (^reloadTableview)(NSIndexPath *index);
 
-//-(void)reloadTableview:(void(^)(NSIndexPath *index))callback;
 
 @end

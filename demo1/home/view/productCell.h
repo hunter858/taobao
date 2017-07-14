@@ -15,7 +15,11 @@
 @property (nonatomic,strong)NSMutableArray *viewArray;
 @property (nonatomic,strong)NSIndexPath *index;
 
--(void)setData:(NSArray *)array;
+-(void)setData:(NSArray *)array; //给整个cell赋值的方法
+
+-(void)setleftData:(id)data;  //更新左侧产品的方法
+-(void)setRightData:(id)data; //更新右侧产品的方法
+
 
 @property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 //用户接受点击URL的block 回调
@@ -24,5 +28,6 @@
 @property (nonatomic,copy) void (^clickdontLikeButton)(NSIndexPath *index);
 //产品的找相似 和 不喜欢 按钮的block 回调^(NSIndexPath *index){
 
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end

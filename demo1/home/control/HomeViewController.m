@@ -26,8 +26,10 @@
     }];
     
     _viewModel.reloadTableview = ^(NSIndexPath *index) {
-        
-//        [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationMiddle];
+        if (index!=nil) {
+         [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationMiddle];
+        }
+       
     };
 
 }

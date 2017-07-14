@@ -463,64 +463,74 @@
 -(void)addProductCell:(NSArray*)data{
     TableViewSectionModel *sectionModel=[self getSectionModel];
     CellModel *banner =[[CellModel alloc]init];
-    productCell *cell =[[productCell alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
+    
+    static NSString *identifier = @"productCell";
+    
     
     banner.CellHeight = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
         return 230;
     };
+
+    __weak typeof(self) weakself=self;
+    
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
+        
+        productCell *cell = [self.tableViewDataModel.tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell==nil) {
+            cell = [[productCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            NSLog(@"indexPath-%@",indexPath);
+        }
+        
+        [cell setData:data];
+        
+        cell.clickIndex = ^(NSString *URL){
+            [AppRouterTool pushWithUrl:URL];
+        };
+        
         cell.index = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+        
+        //点击了产品的喜欢按钮
+        //在这里 取拿一个新的产品，然后刷新tableview 就可以了
+        cell.clickLikeButton = ^(NSIndexPath *index) {
+            
+            if (weakself.reloadTableview!=NULL) {
+                weakself.reloadTableview(index);
+            }
+            
+        };
+        //点击了产品的不喜欢按钮
+        cell.clickdontLikeButton = ^(NSIndexPath *index) {
+            
+            if (weakself.reloadTableview!=NULL) {
+                weakself.reloadTableview(index);
+            }
+        };
+        
+
         return cell;
     };
     
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0)];
-    }
-    
-    
-
-    [cell setData:data];
-
-    cell.clickIndex = ^(NSString *URL){
-        [AppRouterTool pushWithUrl:URL];
-    };
-    
-    
-    
-    // 这里需要注意的是，因为这里只用了一个section 所以，section为0 ，如果为多个section
-    // 请去判断为第几个section
-    
-//    NSIndexPath *index222 = [NSIndexPath indexPathForRow:sectionModel.cellModelsArr.count inSection:0];
-    
-    //点击了产品的喜欢按钮
-    //在这里 取拿一个新的产品，然后刷新tableview 就可以了
-    __weak typeof(self) weakself=self;
-    
-    //好笨的方法，给cell 负一个 NSIndexPath 的属性值 ，在回传出来，
-//    [cell setIndex:index222];;
-    cell.clickLikeButton = ^(NSIndexPath *index) {
-        
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-        
-    };
-    //点击了产品的不喜欢按钮
-    cell.clickdontLikeButton = ^(NSIndexPath *index) {
-
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-    };
-    
-    
-    
     [sectionModel.cellModelsArr addObject:banner];
 }
+
+
+// 一个随机产品数据的方法
+
+-(sectionModel *)getRandomData{
+    
+    NSInteger count = self.productModel.section.count; //所有产品数据的数量
+    NSInteger value =arc4random_uniform(count + 1);   //在所有产品中随机一个产品
+    sectionModel *model = nil;
+    if (value<count) {
+        //不越界
+        model = self.productModel.section[value];
+        return model;
+    }
+    return  model;
+    
+}
+
 
 
 

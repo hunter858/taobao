@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "demo1/home/view/productCell.m"
-            timestampString = "521709435.364736"
+            timestampString = "521715949.338121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "-setData:"
             landmarkType = "7">
          </BreakpointContent>
