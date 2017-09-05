@@ -464,7 +464,7 @@
     TableViewSectionModel *sectionModel=[self getSectionModel];
     CellModel *banner =[[CellModel alloc]init];
     
-    static NSString *identifier = @"productCell";
+
     
     
     banner.CellHeight = ^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
@@ -475,60 +475,70 @@
     
     
 
-    productCell *cell = [self.tableViewDataModel.tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell==nil) {
-        cell = [[productCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    __weak typeof(cell) weakCell = cell;
-    //点击了产品的喜欢按钮 (左侧)
-    //在这里 取拿一个新的产品，然后刷新tableview 就可以了
-    cell.clickLeftLikeButton = ^(NSIndexPath *index) {
-        
-        [weakCell setleftData:weakself.getRandomData]; //搞一个假数据 刷新tableview
-        
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-        
-    };
-    //点击了产品的不喜欢按钮 (左侧)
-    cell.clickLeftDontLikeButton  = ^(NSIndexPath *index) {
-        [weakCell setleftData:weakself.getRandomData];
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-    };
-    
-    //点击了产品的喜欢按钮 (右侧)
-    cell.clickRightLikeButton = ^(NSIndexPath *index) {
-        
-        [weakCell setRightData:weakself.getRandomData]; //搞一个假数据 刷新tableview
-        
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-        
-    };
-    
-    //点击了产品的不喜欢按钮 (右侧)
-    cell.clickRightDontLikeButton  = ^(NSIndexPath *index) {
-        [weakCell setRightData:weakself.getRandomData];
-        if (weakself.reloadTableview!=NULL) {
-            weakself.reloadTableview(index);
-        }
-    };
-        [cell setData:data];
-    
     banner.Cell=^UITableViewCell*(UITableView *tableView,NSIndexPath* indexPath){
         
+        
+        NSString *identifier = [NSString stringWithFormat:@"productCell%@",indexPath];
+        productCell *cell = [self.tableViewDataModel.tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell==nil) {
+            cell = [[productCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        
+        [cell setData:data];
         
         cell.clickIndex = ^(NSString *URL){
             [AppRouterTool pushWithUrl:URL];
         };
         
         cell.index = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
-  
+        
+        
+        __weak typeof(cell) weakCell = cell;
+        
+        //点击了产品的喜欢按钮 (左侧)
+        //在这里 取拿一个新的产品，然后刷新tableview 就可以了
+        cell.clickLeftLikeButton = ^(NSIndexPath *index) {
+            
+            [weakCell setleftData:[weakself getRandomData]]; //搞一个假数据 刷新tableview
+            
+            if (weakself.reloadTableview!=NULL) {
+                [weakCell reloadCell];
+                weakself.reloadTableview(index);
+            }
+            
+        };
+        //点击了产品的不喜欢按钮 (左侧)
+        cell.clickLeftDontLikeButton  = ^(NSIndexPath *index) {
+            [weakCell setleftData:[weakself getRandomData]];
+            if (weakself.reloadTableview!=NULL) {
+                [weakCell reloadCell];
+                weakself.reloadTableview(index);
+            }
+        };
+        
+        //点击了产品的喜欢按钮 (右侧)
+        cell.clickRightLikeButton = ^(NSIndexPath *index) {
+            
+            [weakCell setRightData:[weakself getRandomData]];
+            
+            if (weakself.reloadTableview!=NULL) {
+                [weakCell reloadCell];
+                weakself.reloadTableview(index);
+            }
+            
+        };
+        
+        //点击了产品的不喜欢按钮 (右侧)
+        cell.clickRightDontLikeButton  = ^(NSIndexPath *index) {
+            [weakCell setRightData:[weakself getRandomData]];
+            if (weakself.reloadTableview!=NULL) {
+                [weakCell reloadCell];
+                weakself.reloadTableview(index);
+            }
+        };
+        
+        
         
         return cell;
     };

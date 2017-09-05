@@ -27,7 +27,7 @@
     
     _viewModel.reloadTableview = ^(NSIndexPath *index) {
         if (index!=nil) {
-         [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+            [weakself.mytableview reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationLeft];
         }
        
     };

@@ -20,6 +20,8 @@
 -(void)setleftData:(id)data;  //更新左侧产品的方法
 -(void)setRightData:(id)data; //更新右侧产品的方法
 
+-(void)reloadCell;//刷新cell
+
 
 @property (nonatomic,copy) void (^clickIndex)(NSString *clickIndex);
 //用户接受点击URL的block 回调

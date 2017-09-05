@@ -120,7 +120,7 @@
     
     [self layoutIfNeeded];
     
-
+    
  
     
 }
@@ -129,24 +129,40 @@
 -(void)setData:(NSArray *)array{
     
     __weak typeof(self) weakself=self;
-    if (self.tempDataArray.count>0) {
+//    if (self.tempDataArray.count>0) {
+//        
+//       
+//
+//        self.dataArray = self.tempDataArray.mutableCopy;
+//        
+//        
+//    }else{
+//        for (int i= 0; i<array.count; i++) {
+//            
+//            id data = array[i];
+//            if ([data isKindOfClass:[sectionModel class]]) {
+//                sectionModel *Model = (sectionModel *)data;
+//                [self.dataArray addObject:[Model.items firstObject]];
+//            }
+//        }
+//    }
+    if((self.dataArray!=nil)&&(self.dataArray.count>0)){
+         [self.dataArray removeAllObjects];
+         //移除之前的数据模型
+    }
         
-       //self.data 已经更换成新数据了；
-//        NSLog(@"已经切换了新数据");
-        NSLog(@"xxx");
-        self.dataArray = self.tempDataArray.mutableCopy;
-        
-        
-    }else{
-        for (int i= 0; i<array.count; i++) {
-            
-            id data = array[i];
-            if ([data isKindOfClass:[sectionModel class]]) {
-                sectionModel *Model = (sectionModel *)data;
-                [self.dataArray addObject:[Model.items firstObject]];
-            }
+
+    
+    for (int i= 0; i<array.count; i++) {
+
+        id data = array[i];
+        if ([data isKindOfClass:[sectionModel class]]) {
+            sectionModel *Model = (sectionModel *)data;
+            [self.dataArray addObject:[Model.items firstObject]];
         }
     }
+    
+//    self.dataArray = array;
     
     
     //这段代码比较low ，但是我还没找到好的解决方法
@@ -252,15 +268,31 @@
     
 }
 
-
-
+-(void)reloadCell{
+    
+    [self setData:self.dataArray];
+    [self layoutIfNeeded];
+    
+}
 
 -(NSMutableArray *)dataArray{
-    if (_dataArray==nil) {
-        _dataArray =@[].mutableCopy;
+    if (!_dataArray) {
+        _dataArray = @[].mutableCopy;
     }
     return _dataArray;
 }
+-(NSMutableArray *)tempDataArray{
+    if (!_tempDataArray) {
+        _tempDataArray = @[].mutableCopy;
+    }
+    return _tempDataArray;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    NSLog(@"重新调用");
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
