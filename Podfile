@@ -9,5 +9,6 @@ pod 'SDWebImage'
 pod 'JSONModel'
 pod 'ReactiveObjC'
 pod 'SDCycleScrollView', ' 1.64'
-
+pod 'ios_categoryPP'
+pod 'FHHFPSIndicator'
 end

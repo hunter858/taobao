@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FHHFPSIndicator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,49 +49,13 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ios_categoryPP.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>29DD99664D189A7CA206368F493B1E0B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2CD387CCC019E63EC4D6DC12A51FC2C8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>54D841678D5C1E50CCAEFD3459161A09</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9AE5C5D08F98E8F327CB3A81E29B732A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A9A83F63385AA43314397B8DD375464B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AF21780C841830BE5AD3F34076925612</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C88EEFD5C1E7D981CDAA8C9EAE3BAFC9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

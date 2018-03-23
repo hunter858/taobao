@@ -1,0 +1,6 @@
+framework module ios_categoryPP {
+  umbrella header "ios_categoryPP-umbrella.h"
+
+  export *
+  module * { export * }
+}

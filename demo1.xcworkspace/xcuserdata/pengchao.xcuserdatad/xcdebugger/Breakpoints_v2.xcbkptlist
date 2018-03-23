@@ -68,22 +68,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "demo1/home/view/productCell.m"
-            timestampString = "526282342.015652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-setData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "demo1/home/view/productCell.m"
             timestampString = "526282349.709334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

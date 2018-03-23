@@ -1,0 +1,6 @@
+framework module FHHFPSIndicator {
+  umbrella header "FHHFPSIndicator-umbrella.h"
+
+  export *
+  module * { export * }
+}

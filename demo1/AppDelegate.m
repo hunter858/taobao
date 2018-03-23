@@ -10,6 +10,10 @@
 #import "ViewController.h"
 #import "HomeViewController.h"
 #import "AppNavigationController.h"
+#if defined(DEBUG) || defined(_DEBUG)
+#import "FHHFPSIndicator.h"
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -24,9 +28,16 @@
     
     HomeViewController *control =[[HomeViewController alloc]init];
     self.navController = [[AppNavigationController alloc]initWithRootViewController:control];
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
-    [self.window setBackgroundColor:[UIColor whiteColor]];
+#if defined(DEBUG) || defined(_DEBUG)
+    [[FHHFPSIndicator sharedFPSIndicator] show];
+    [FHHFPSIndicator sharedFPSIndicator].fpsLabelPosition = FPSIndicatorPositionTopRight;
+    [[FHHFPSIndicator sharedFPSIndicator] fpsLabelColor:[UIColor redColor]];
+#endif
+
     return YES;
 }
 
