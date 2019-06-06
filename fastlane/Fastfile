@@ -17,7 +17,18 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :custom_lane do
+
+  before_all do
+    # faselane中pod install的操作
+    cocoapods
+  end
+  lane :enterprise do
     # add actions here: https://docs.fastlane.tools/actions
+    gym(
+    scheme:"demo1",
+    export_method:"enterprise",
+    output_directory:"/Users/edz/Desktop/自动打包--ok",
+    output_name:"demo1_app"
+    )
   end
 end
