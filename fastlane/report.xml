@@ -5,7 +5,24 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.00669">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.033427">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: get_build_number" time="0.25955">
+        
+          <failure message="/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/runner.rb:235:in `block in execute_action'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/runner.rb:227:in `chdir'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/runner.rb:227:in `execute_action'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:154:in `method_missing'&#10;Fastfile:21:in `block in parsing_binding'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:122:in `platform'&#10;Fastfile:12:in `parsing_binding'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:56:in `eval'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:56:in `block in parse'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:45:in `chdir'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:45:in `parse'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/fast_file.rb:35:in `initialize'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/lane_manager.rb:16:in `new'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/lane_manager.rb:16:in `cruise_lane'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/commands_generator.rb:108:in `block (2 levels) in run'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:76:in `run!'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/commands_generator.rb:333:in `run'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/fastlane/lib/fastlane/cli_tools_distributor.rb:119:in `take_off'&#10;/Users/edz/.fastlane/bin/bundle/lib/ruby/gems/2.2.0/gems/fastlane-2.125.2/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/Users/edz/.fastlane/bin/bundle/bin/fastlane:22:in `load'&#10;/Users/edz/.fastlane/bin/bundle/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Exit status of command 'cd /Users/edz/Documents/taobao &amp;&amp; agvtool what-version -terse' was 6 instead of 0.&#10;" />
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: increment_build_number" time="0.565995">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: gym" time="66.959771">
         
       </testcase>
     

@@ -1,6 +1,14 @@
 
 default_platform(:ios)
 
+scheme_name = "demo1"
+workspace_name = "demo1.xcworkspace"
+api_key ="30ef1623affe660f0f159a3ad07fbd79"
+user_key ="7830ad392b1a5abb00db7988cd6523cf"
+
+
+
+
 platform :ios do
   desc "Description of what the lane does"
 
@@ -8,27 +16,74 @@ platform :ios do
     # faselane中pod install的操作
     # cocoapods
   end
-  #####---------------------DEBUG 环境--------------------####
+
+  begin
+      last_build = get_build_number.to_i #get_build_number，获取工程中的build number
+    rescue
+      puts "No Active Build using build nr. 0"
+      last_build = 0
+  end
+
+
+  #------------------------------------------------------------------
   lane :debug do
-    
+
     now_build = last_build + 1
     increment_build_number(build_number: now_build)
     gym(
-     scheme:"demo1",
-     workspace:"demo1.xcworkspace",
-     export_method:"enterprise",
-     configuration: "Debug",
-     output_directory:"/Users/edz/Desktop/自动打包--ok",
-     output_name:"demo1_app"
+      clean: true,
+      scheme:scheme_name,
+      workspace:workspace_name,
+      configuration: "Release",
+      export_method:"enterprise",
+      output_directory:"/Users/edz/Desktop/自动打包--ok",
+      output_name:"demo1_app"
+    )
+    pgyer(
+      api_key: api_key,
+      user_key: user_key
+    )
+  end
+#------------------------------------------------------------------
+  lane :test do
+
+    now_build = last_build + 1
+    increment_build_number(build_number: now_build)
+    gym(
+      clean: true,
+      scheme:scheme_name,
+      workspace:workspace_name,
+      configuration: "Test",
+      export_method:"enterprise",
+      output_directory:"/Users/edz/Desktop/自动打包--ok",
+      output_name:"demo1_app"
+    )
+     pgyer(
+      api_key: api_key,
+      user_key: user_key
     )
   end
 
-  #####----------------------Test 环境--------------------####
+#------------------------------------------------------------------
+  lane :release do
+
+    now_build = last_build + 1
+    increment_build_number(build_number: now_build)
+    gym(
+      clean: true,
+      scheme:scheme_name,
+      workspace:workspace_name,
+      configuration: "Release",
+      export_method:"enterprise",
+      output_directory:"/Users/edz/Desktop/自动打包--ok",
+      output_name:"demo1_app"
+    )
+     pgyer(
+      api_key: api_key,
+      user_key: user_key
+    )
+  end
 
 
-  #####---------------------Release 环境------------------####
 
-
-  
-  pgyer(api_key:"30ef1623affe660f0f159a3ad07fbd79",user_key:"7830ad392b1a5abb00db7988cd6523cf")
 end
