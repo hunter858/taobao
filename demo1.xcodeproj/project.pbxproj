@@ -833,15 +833,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UPXD2DL57X;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/demo1/config.pch";
 				INFOPLIST_FILE = demo1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.QFZS.Qiaofang.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1e92da8f-5ee7-439a-8521-64e237029915";
+				PROVISIONING_PROFILE_SPECIFIER = QiaofanCustomerDev_Distribution;
 			};
 			name = Release;
 		};
