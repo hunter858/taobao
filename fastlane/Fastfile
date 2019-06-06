@@ -8,14 +8,27 @@ platform :ios do
     # faselane中pod install的操作
     # cocoapods
   end
-  lane :release do
-
+  #####---------------------DEBUG 环境--------------------####
+  lane :debug do
+    
+    now_build = last_build + 1
+    increment_build_number(build_number: now_build)
     gym(
      scheme:"demo1",
      workspace:"demo1.xcworkspace",
      export_method:"enterprise",
+     configuration: "Debug",
      output_directory:"/Users/edz/Desktop/自动打包--ok",
      output_name:"demo1_app"
     )
   end
+
+  #####----------------------Test 环境--------------------####
+
+
+  #####---------------------Release 环境------------------####
+
+
+  
+  pgyer(api_key:"30ef1623affe660f0f159a3ad07fbd79",user_key:"7830ad392b1a5abb00db7988cd6523cf")
 end
